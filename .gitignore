@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+**/build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Logs
+*.log
+
+# Test & coverage
+coverage/
+playwright-report/
+test-results/
+
+# Storybook
+storybook-static/
+
+# Turborepo
+.turbo/
+.next/
+
+# Flutter
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# IDE — VSCode
+.vscode/
+
+# IDE — JetBrains
+**/.idea/
+*.iml
+
+# Claude Code
+.claude/settings.local.json
+
+# TypeScript incremental builds
+**/*.tsbuildinfo
+
+# Tool caches
+.eslintcache
+.cache/
+
+# Vercel local metadata (si usas vercel cli)
+.vercel/
+
+# OSX
+.DS_Store
+
+# Temporary files
+temp/
+
+# Internal dev artifacts — kept private, backed up in projects-internal repo
+/PRODUCT.md
+/CLAUDE.md
+/.claude/
+/.specs/README.md
+/.specs/.agents/
+/docs/mockups/

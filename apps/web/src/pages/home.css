@@ -1,0 +1,380 @@
+:root {
+  --site-header-height: 72px;
+}
+
+/* Vertical rhythm shared by every section */
+.section {
+  padding-block: 64px;
+  scroll-margin-top: var(--site-header-height);
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 128px;
+  }
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--site-header-height);
+  background: var(--background);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--spacing-margin);
+}
+
+.site-header__logo {
+  margin-right: 8px;
+}
+
+.site-header__brand-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Full-height, scroll-snapped sections — DESKTOP ONLY.
+   `height` (not `min-height` — DD-19 REVERSED, rev 7) hard-caps every one of
+   these 4 sections at exactly the viewport height. `overflow-y: auto` is the
+   AC-13 edge case's last-resort fallback: a no-op scrollbar unless a section's
+   content genuinely can't fit even after the child-layout fixes below. */
+@media (min-width: 1024px) {
+  .hero,
+  .section--snap {
+    height: calc(100vh - var(--site-header-height));
+    scroll-snap-align: start;
+    overflow-y: auto;
+  }
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__headline {
+  margin-block: 24px 40px;
+}
+
+.hero__highlight {
+  color: var(--primary-container);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.hero__subcopy {
+  max-width: 640px;
+  border-left: 2px solid var(--outline-variant);
+  padding-left: 16px;
+  color: var(--on-surface-variant);
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 64px;
+}
+
+/* Builder */
+.builder {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  padding-block: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.builder > .container-max {
+  display: grid;
+  gap: 32px;
+  border: 1px solid var(--secondary-container);
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  /* was 1024px; matches tablet.png's side-by-side Builder layout */
+  .builder > .container-max {
+    grid-template-columns: 5fr 7fr;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* NEW, rev 7 — makes the grid's own row consume the SECTION's full fixed
+     height (not just auto-size to the text column's content), so both
+     columns genuinely share that height, and the text column has a real
+     "shared height" to center within (AC-3). */
+  .builder > .container-max {
+    height: 100%;
+    grid-template-rows: 1fr;
+  }
+}
+
+.builder__image-wrap {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden; /* NEW, rev 7 — clips the absolutely-positioned image to the wrap's bounds */
+}
+
+.builder__image-wrap .chip {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.builder__image {
+  display: block;
+  /* NEW, rev 7 — out of flow, so the image's leftover portrait intrinsic
+     aspect ratio (from Builder.tsx's now-removed width/height attributes)
+     can never again feed back into the grid row's auto-height computation.
+     See the AC-3 (revision 7) section above for the full root-cause. */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.builder__content {
+  /* NEW, rev 7 — centers the (now potentially shorter-than-the-shared-height)
+     text column within that shared height, so no dead space is left below
+     the stat cards (AC-3). */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.builder__facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 24px;
+  font-family: var(--font-mono);
+}
+
+.builder__facts a {
+  color: var(--primary-container);
+  text-decoration: underline;
+}
+
+.builder__quote {
+  border-left: 2px solid var(--primary-container);
+  padding-left: 16px;
+  margin-bottom: 32px;
+  color: var(--on-surface-variant);
+  font-style: italic;
+}
+
+.builder__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Featured Systems */
+.featured-systems__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.featured-systems__github {
+  color: var(--primary-container);
+  text-decoration: underline;
+}
+
+.project-card-cell {
+  grid-column: 1 / -1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card-cell:hover .card,
+.project-card-cell:focus-visible .card {
+  border-color: var(--primary-container);
+}
+
+.project-card-cell:focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  /* Uniform 2-col tier below desktop — weight-based treemap sizing (AC-4)
+     is desktop-only (DD-44); tablet/mobile treat every card equally,
+     matching tablet.png/mobile.png (no size-tiered cards shown there). */
+  .featured-systems__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-card-cell {
+    grid-column: span 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Carried forward, unchanged (DD-29/DD-32): the grid's total height comes
+     from the SECTION's own fixed height, not content. */
+  .featured-systems > .container-max {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* NEW — the grid is no longer CSS Grid at this breakpoint. Children's
+     positions/sizes come from the treemap function's output (--rect-*
+     custom properties set inline per card), not grid-template-*. */
+  .featured-systems__grid {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    display: block;
+  }
+
+  .project-card-cell {
+    position: absolute;
+    top: var(--rect-top);
+    left: var(--rect-left);
+    width: var(--rect-width);
+    height: var(--rect-height);
+    box-sizing: border-box;
+    /* Reuses the existing desktop gutter token (24px) — half on each edge
+       reproduces the same 24px total gap between adjacent cards this grid
+       already used; no new pixel value introduced. */
+    padding: calc(var(--spacing-gutter-desktop) / 2);
+  }
+
+  /* Every card fills its absolutely-positioned cell's full height, and its
+     own image cover-fills whatever's left after the text block — never the
+     reverse. Scoped to Featured Systems' cards only; packages/ui's shared
+     Card primitive and its other page usages (Builder's stat cards) are
+     untouched. */
+  .featured-systems__grid .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-systems__grid .card__body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* last-resort: a genuinely-too-long description
+      scrolls within its own card rather than clipping silently */
+  }
+
+  .featured-systems__grid .project-card__image {
+    flex: 1;
+    min-height: 0;
+    object-fit: cover;
+  }
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card__image,
+.project-card__glyph {
+  display: block;
+  margin-top: 16px;
+}
+
+.project-card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Connect (rev 8 — merged from Challenges' frame + CtaBand's content) */
+.connect {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  padding-block: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* rev 9 — sticky-footer layout: the card wrapper grows to fill whatever
+   height is left after .connect__footer, and centers the card within that
+   space, instead of centering card+footer together as one block (which left
+   dead space below the footer under the section's hard `height` cap,
+   AC-13). */
+.connect > .container-max {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connect__card {
+  text-align: center;
+  border: 1px solid var(--secondary-container);
+  padding: 48px 24px;
+}
+
+.connect__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.connect__status {
+  color: var(--on-surface-variant);
+}
+
+.connect__subtitle {
+  max-width: 560px;
+  margin: 16px auto 0;
+  color: var(--on-surface-variant);
+}
+
+.connect__footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  padding-inline: var(--spacing-margin);
+  border-top: 1px solid var(--outline-variant);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.connect__footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.connect__footer-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.connect__footer-links a {
+  color: var(--on-surface);
+}

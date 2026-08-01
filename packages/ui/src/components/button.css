@@ -1,0 +1,31 @@
+.btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--label-md-letter-spacing);
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btn--primary {
+  background: var(--primary-container);
+  color: var(--background);
+  border: 1px solid var(--primary-container);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--primary-container);
+  border: 1px solid var(--primary-container);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 2px;
+}

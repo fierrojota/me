@@ -1,0 +1,170 @@
+{
+  "slug": "03-design-system",
+  "created": "2026-07-24",
+  "layers": {
+    "ui": [
+      {
+        "id": "ui-1",
+        "title": "Add test tooling to packages/ui (Vitest + RTL + tsconfig.json)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["DD-9"],
+        "files": [
+          "packages/ui/vitest.config.ts",
+          "packages/ui/src/setup-tests.ts",
+          "packages/ui/tsconfig.json",
+          "packages/ui/package.json"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-2",
+        "title": "Design tokens (tokens.css) + delete duplicate hex vars in apps/web/index.css",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "DD-1"],
+        "files": [
+          "packages/ui/src/tokens.css",
+          "apps/web/src/index.css"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-3",
+        "title": "Typography utility classes + self-hosted fonts + Typography story",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-5", "AC-6", "DD-1"],
+        "files": [
+          "packages/ui/src/typography.css",
+          "packages/ui/src/components/Typography.stories.tsx",
+          "packages/ui/package.json"
+        ],
+        "dependencies": ["ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-4",
+        "title": "Layout/Grid utility classes + Grid story",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-7", "AC-6", "DD-2"],
+        "files": [
+          "packages/ui/src/layout.css",
+          "packages/ui/src/components/Grid.stories.tsx"
+        ],
+        "dependencies": ["ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-5",
+        "title": "Button primitive + stories + unit test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-2", "AC-6", "DD-8"],
+        "files": [
+          "packages/ui/src/components/Button.tsx",
+          "packages/ui/src/components/button.css",
+          "packages/ui/src/components/Button.stories.tsx",
+          "packages/ui/src/components/Button.test.tsx"
+        ],
+        "dependencies": ["ui-1", "ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-6",
+        "title": "Chip primitive + stories + unit test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-3", "AC-6", "DD-6"],
+        "files": [
+          "packages/ui/src/components/Chip.tsx",
+          "packages/ui/src/components/chip.css",
+          "packages/ui/src/components/Chip.stories.tsx",
+          "packages/ui/src/components/Chip.test.tsx"
+        ],
+        "dependencies": ["ui-1", "ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-7",
+        "title": "Card primitive + stories + unit test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-4", "AC-6"],
+        "files": [
+          "packages/ui/src/components/Card.tsx",
+          "packages/ui/src/components/card.css",
+          "packages/ui/src/components/Card.stories.tsx",
+          "packages/ui/src/components/Card.test.tsx"
+        ],
+        "dependencies": ["ui-1", "ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-8",
+        "title": "Input primitive + stories + unit test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-8", "AC-6", "DD-8"],
+        "files": [
+          "packages/ui/src/components/Input.tsx",
+          "packages/ui/src/components/input.css",
+          "packages/ui/src/components/Input.stories.tsx",
+          "packages/ui/src/components/Input.test.tsx"
+        ],
+        "dependencies": ["ui-1", "ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-9",
+        "title": "Nav primitive (react-router-dom NavLink) + stories + unit test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-9", "AC-6", "DD-8"],
+        "files": [
+          "packages/ui/src/components/Nav.tsx",
+          "packages/ui/src/components/nav.css",
+          "packages/ui/src/components/Nav.stories.tsx",
+          "packages/ui/src/components/Nav.test.tsx",
+          "packages/ui/package.json"
+        ],
+        "dependencies": ["ui-1", "ui-2"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-10",
+        "title": "Wire index.ts barrel exports + side-effect CSS imports",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1"],
+        "files": [
+          "packages/ui/src/index.ts"
+        ],
+        "dependencies": ["ui-3", "ui-4", "ui-5", "ui-6", "ui-7", "ui-8", "ui-9"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-11",
+        "title": "i18n foundation in apps/web (i18next + browser detection + common namespace)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-10", "DD-4", "DD-4b", "DD-5"],
+        "files": [
+          "apps/web/src/lib/i18n.ts",
+          "apps/web/src/lib/i18n.test.ts",
+          "apps/web/src/main.tsx",
+          "apps/web/public/locales/en/common.json",
+          "apps/web/public/locales/es/common.json",
+          "apps/web/package.json"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      }
+    ]
+  },
+  "ac_coverage": {
+    "AC-1": ["ui-2", "ui-10"],
+    "AC-2": ["ui-5"],
+    "AC-3": ["ui-6"],
+    "AC-4": ["ui-7"],
+    "AC-5": ["ui-3"],
+    "AC-6": ["ui-3", "ui-4", "ui-5", "ui-6", "ui-7", "ui-8", "ui-9"],
+    "AC-7": ["ui-4"],
+    "AC-8": ["ui-8"],
+    "AC-9": ["ui-9"],
+    "AC-10": ["ui-11"]
+  },
+  "uncovered_acs": []
+}

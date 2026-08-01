@@ -1,0 +1,50 @@
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/jetbrains-mono';
+
+.text-headline-lg {
+  font-family: var(--headline-lg-font-family);
+  font-size: var(--headline-lg-font-size);
+  font-weight: var(--headline-lg-font-weight);
+  line-height: var(--headline-lg-line-height);
+  letter-spacing: var(--headline-lg-letter-spacing);
+}
+
+.text-headline-md {
+  font-family: var(--headline-md-font-family);
+  font-size: var(--headline-md-font-size);
+  font-weight: var(--headline-md-font-weight);
+  line-height: var(--headline-md-line-height);
+  letter-spacing: var(--headline-md-letter-spacing);
+}
+
+.text-body-lg {
+  font-family: var(--body-lg-font-family);
+  font-size: var(--body-lg-font-size);
+  font-weight: var(--body-lg-font-weight);
+  line-height: var(--body-lg-line-height);
+  letter-spacing: var(--body-lg-letter-spacing);
+}
+
+.text-body-md {
+  font-family: var(--body-md-font-family);
+  font-size: var(--body-md-font-size);
+  font-weight: var(--body-md-font-weight);
+  line-height: var(--body-md-line-height);
+  letter-spacing: var(--body-md-letter-spacing);
+}
+
+.text-label-md {
+  font-family: var(--label-md-font-family);
+  font-size: var(--label-md-font-size);
+  font-weight: var(--label-md-font-weight);
+  line-height: var(--label-md-line-height);
+  letter-spacing: var(--label-md-letter-spacing);
+}
+
+.text-label-sm {
+  font-family: var(--label-sm-font-family);
+  font-size: var(--label-sm-font-size);
+  font-weight: var(--label-sm-font-weight);
+  line-height: var(--label-sm-line-height);
+  letter-spacing: var(--label-sm-letter-spacing);
+}

@@ -1,0 +1,37 @@
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--secondary-container);
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+}
+
+.language-toggle__icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: var(--on-surface-variant);
+}
+
+.language-toggle__option {
+  background: transparent;
+  border: none;
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: var(--label-md-font-size);
+  letter-spacing: var(--label-md-letter-spacing);
+  color: var(--on-surface-variant);
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.language-toggle__option--active {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.language-toggle__option:focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 2px;
+}

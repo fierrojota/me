@@ -1,0 +1,22 @@
+.welcome {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+  background: var(--background);
+  color: var(--on-surface);
+}
+
+.welcome__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--primary-container);
+  text-align: center;
+}
+
+.welcome__tag {
+  font-size: 1rem;
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 0.5rem;
+}

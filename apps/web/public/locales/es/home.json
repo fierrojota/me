@@ -1,0 +1,72 @@
+{
+  "header": {
+    "wordmark": "jotafierro.me",
+    "nav": {
+      "init": "00_INICIALIZAR",
+      "about": "01_ACERCA",
+      "systems": "02_SISTEMAS",
+      "connect": "03_CONECTAR",
+      "menuLabel": "MENÚ"
+    },
+    "connect": "CONNECT.EXE"
+  },
+  "hero": {
+    "status": "[ ESTADO: LOGICA_DE_ALTO_RENDIMIENTO ]",
+    "headlinePrefix": "INGENIERÍA PARA",
+    "headlineHighlight": "ALTO RENDIMIENTO.",
+    "headlineSuffix": "CONSTRUIDO CON RIGOR.",
+    "subcopy": "Arquitectura de sistemas escalables e infraestructura crítica de rendimiento. Destilando la complejidad en experiencias digitales de nivel terminal.",
+    "ctaPrimary": "INICIALIZAR_VER_SISTEMAS",
+    "ctaSecondary": "¿QUIÉN_ES_EL_CONSTRUCTOR?"
+  },
+  "builder": {
+    "sourceImageLabel": "[ IMAGEN_FUENTE_01 ]",
+    "imageAlt": "Jota Fierro trabajando en un puesto de desarrollo con múltiples monitores",
+    "heading": "EL_CONSTRUCTOR",
+    "factRolePrefix": "> ROL_ACTUAL: Backend Developer /",
+    "factSpecialization": "> ESPECIALIZACIÓN: Infraestructura de Alto Tráfico",
+    "factPhilosophy": "> FILOSOFÍA: Simplicidad Sobre Ingenio",
+    "quote": "\"Equilibro el rigor técnico con un enfoque ingenioso y centrado en la innovación para resolver problemas. El código es una fuerza dinámica.\"",
+    "stat1Label": "01_PRÁCTICA",
+    "stat1Title": "ARQUITECTURA_LIMPIA",
+    "stat1Body": "Prácticas rigurosas de TDD e implementación de principios SOLID.",
+    "stat2Label": "02_VELOCIDAD",
+    "stat2Title": "INNOVACIÓN",
+    "stat2Body": "Iteración constante sobre tecnologías emergentes."
+  },
+  "featuredSystems": {
+    "heading": "SISTEMAS_DESTACADOS",
+    "subcopy": "REGISTRO_DE_INGENIERÍA: Selección de sistemas distribuidos y aplicaciones de alto rendimiento.",
+    "githubLink": "ABRIR_GITHUB [TODOS]",
+    "superclean": {
+      "tag": "[ HERRAMIENTAS_CLI ]",
+      "title": "SUPERCLEAN",
+      "description": "Utilidad de línea de comandos para limpiar cachés, logs y la papelera del sistema en macOS."
+    },
+    "backendTaskTracker": {
+      "tag": "[ HERRAMIENTAS_CLI ]",
+      "title": "R_BACKEND_TASK_TRACKER_CLI",
+      "description": "CLI de seguimiento de tareas backend que resuelve el track de Backend de roadmap.sh — parsing de comandos, persistencia en JSON, CRUD por terminal."
+    },
+    "jUtils": {
+      "tag": "[ UTILIDADES_DEV ]",
+      "title": "J_UTILS",
+      "description": "Utilidades en TypeScript y experimentos de prueba de concepto."
+    },
+    "wrapperPath": {
+      "tag": "[ UTILIDADES_DEV ]",
+      "title": "WRAPPER_PATH",
+      "description": "Wrapper ligero alrededor del módulo path de Node."
+    }
+  },
+  "connect": {
+    "headline": "CONSTRUYE_SISTEMAS_NOTABLES_AHORA",
+    "subtitle": "Actualmente acepto un número selecto de colaboraciones de ingeniería para el Q4 de 2024. Construyamos algo que perdure.",
+    "email": "CONNECT@JOTAFIERRO.ME",
+    "status": "ESPERANDO_CONEXIÓN_ENTRANTE...",
+    "footerBrand": "jotafierro.me // {{year}}",
+    "footerGithub": "GITHUB",
+    "footerLinkedin": "LINKEDIN",
+    "footerEmail": "EMAIL"
+  }
+}

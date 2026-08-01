@@ -1,0 +1,19 @@
+.card {
+  background: var(--surface-container);
+  border: 1px solid var(--secondary-container);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.card__header {
+  background: var(--surface-container-high);
+  padding: 16px;
+}
+
+.card__header--bordered {
+  border-bottom: 1px solid var(--secondary-container);
+}
+
+.card__body {
+  padding: 16px;
+}

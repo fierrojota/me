@@ -1,0 +1,58 @@
+{
+  "slug": "02-observability",
+  "created": "2026-07-22",
+  "layers": {
+    "ui": [
+      {
+        "id": "ui-1",
+        "title": "Implement Sentry SDK init, ErrorBoundary wiring, and level-filter helper",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-2", "AC-4", "AC-5", "AC-6", "DD-1", "DD-2", "DD-3", "DD-4", "DD-5"],
+        "files": [
+          "apps/web/src/lib/sentry.ts",
+          "apps/web/src/lib/sentry.test.ts",
+          "apps/web/src/main.tsx",
+          "apps/web/src/lib/error-boundary.tsx",
+          "apps/web/src/lib/error-boundary.test.tsx"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      }
+    ],
+    "infra": [
+      {
+        "id": "infra-1",
+        "title": "Add Sentry/GlitchTip env vars to apps/web",
+        "agent": "j-flow-devops",
+        "spec_refs": ["AC-2", "AC-3", "AC-4", "AC-5", "AC-6"],
+        "files": [
+          "apps/web/.env.example"
+        ],
+        "dependencies": ["ui-1"],
+        "status": "pending"
+      },
+      {
+        "id": "infra-2",
+        "title": "Write docs/OBSERVABILITY.md and link from apps/web/README.md",
+        "agent": "j-flow-devops",
+        "spec_refs": ["AC-7"],
+        "files": [
+          "docs/OBSERVABILITY.md",
+          "apps/web/README.md"
+        ],
+        "dependencies": ["ui-1", "infra-1"],
+        "status": "pending"
+      }
+    ]
+  },
+  "ac_coverage": {
+    "AC-1": ["ui-1"],
+    "AC-2": ["ui-1", "infra-1"],
+    "AC-3": ["infra-1"],
+    "AC-4": ["ui-1", "infra-1"],
+    "AC-5": ["ui-1", "infra-1"],
+    "AC-6": ["ui-1", "infra-1"],
+    "AC-7": ["infra-2"]
+  },
+  "uncovered_acs": []
+}

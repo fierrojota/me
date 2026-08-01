@@ -1,0 +1,241 @@
+{
+  "slug": "04-design-polish",
+  "created": "2026-07-25",
+  "revision": 12,
+  "layers": {
+    "ui": [
+      {
+        "id": "ui-1",
+        "title": "Wire BrowserRouter + Suspense + Route for / in App.tsx; global smooth-scroll + scroll-snap-type: y proximity + dot-grid background",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-9", "AC-11", "AC-12", "AC-13", "DD-1", "DD-9", "DD-10", "DD-15", "DD-18"],
+        "files": [
+          "apps/web/src/App.tsx",
+          "apps/web/src/App.test.tsx",
+          "apps/web/src/index.css"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-2",
+        "title": "Build Section wrapper (container-max + vertical rhythm)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-2", "AC-3", "AC-4", "AC-5", "AC-6"],
+        "files": [
+          "apps/web/src/components/home/Section.tsx"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-13",
+        "title": "i18n foundation for this page: config diff + home.json (en/es) + test-i18n instance",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-11", "DD-4", "DD-10"],
+        "files": [
+          "apps/web/src/lib/i18n.ts",
+          "apps/web/public/locales/en/home.json",
+          "apps/web/public/locales/es/home.json",
+          "apps/web/src/lib/test-i18n.ts"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-14",
+        "title": "Build packages/ui LanguageToggle primitive (2 native aria-pressed buttons, globe icon) + story",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-11", "AC-9", "DD-11"],
+        "files": [
+          "packages/ui/src/components/LanguageToggle.tsx",
+          "packages/ui/src/components/language-toggle.css",
+          "packages/ui/src/components/LanguageToggle.stories.tsx",
+          "packages/ui/src/components/LanguageToggle.test.tsx",
+          "packages/ui/src/index.ts"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-15",
+        "title": "Fix packages/ui Nav centering (3-col grid: brand / centered links / cta) — width:100% confirmed required",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "DD-12"],
+        "files": [
+          "packages/ui/src/components/nav.css"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-16",
+        "title": "Mobile hamburger nav disclosure inside packages/ui Nav (native <details>/<summary>, display:contents + ::details-content unwrap ≥768px)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-9", "DD-20"],
+        "files": [
+          "packages/ui/src/components/Nav.tsx",
+          "packages/ui/src/components/nav.css",
+          "packages/ui/src/components/Nav.test.tsx"
+        ],
+        "dependencies": ["ui-15"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-18",
+        "title": "useActiveSection hook (scroll/resize + rAF + getBoundingClientRect, apps/web) — watches init/the-builder/featured-systems/connect; DD-25 REVISED (was IntersectionObserver, replaced after a real stuck-underline bug)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "DD-25"],
+        "files": [
+          "apps/web/src/hooks/useActiveSection.ts",
+          "apps/web/src/hooks/useActiveSection.test.ts"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-19",
+        "title": "Nav underline indicator: activeTo prop, measured <span>, prefers-reduced-motion-gated transition, hidden <768px",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-9", "DD-26", "DD-27"],
+        "files": [
+          "packages/ui/src/components/Nav.tsx",
+          "packages/ui/src/components/nav.css",
+          "packages/ui/src/components/Nav.test.tsx",
+          "packages/ui/src/components/Nav.stories.tsx"
+        ],
+        "dependencies": ["ui-16"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-3",
+        "title": "Edit Header — remove CONNECT.EXE entirely (cta = LanguageToggle only), add 00_INIT link, rename 3rd link 03_CHALLENGES→03_CONNECT (#connect), wire useActiveSection → activeTo + translated menuLabel to Nav; wrap brand in plain <a href=\"#init\"> (DD-34), rebrand wordmark JOTA_FIERRO→jotafierro.me",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-11", "DD-2", "DD-11", "DD-17", "DD-20", "DD-25", "DD-26", "DD-34"],
+        "files": [
+          "apps/web/src/components/home/Header.tsx",
+          "apps/web/public/locales/en/home.json",
+          "apps/web/public/locales/es/home.json"
+        ],
+        "dependencies": ["ui-14", "ui-13", "ui-15", "ui-16", "ui-18", "ui-19"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-4",
+        "title": "Build Hero section (status chip, headline, subcopy, 2 CTAs) — copy via t('home:hero.*'); id=\"init\" scroll target for 00_INIT",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-2", "AC-11"],
+        "files": [
+          "apps/web/src/components/home/Hero.tsx"
+        ],
+        "dependencies": ["ui-2", "ui-13"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-5",
+        "title": "Build Builder section — copy via t('home:builder.*'); remove stale img width/height attrs (root cause of image-overflow bug, DD-28); rest of fixed-height layout via home.css (ui-10). Revision 11: role/specialization/philosophy/quote/stats sourced from new data/builder.ts (DD-40); CURRENT_ROLE company name becomes a real link, 'Fz Sports' -> https://www.fzsports.com/ (DD-41)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-3", "AC-8", "AC-11", "AC-13", "DD-22", "DD-28", "DD-30", "DD-40", "DD-41"],
+        "files": [
+          "apps/web/src/components/home/Builder.tsx",
+          "apps/web/src/data/builder.ts",
+          "apps/web/src/assets/the-builder.webp"
+        ],
+        "dependencies": ["ui-2", "ui-13"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-6",
+        "title": "Data-driven Featured Systems, revision 11 rework: real GitHub repo data in projects.ts (drops sortByWeightDesc + projects.test.ts + 3 placeholder .webp assets), new lib/treemap.ts recursive area-proportional sizing (DD-42) replacing the old large/small ProjectCard size prop (dropped entirely), FeaturedSystems renders --rect-* custom props from treemap() output; desktop-only via home.css (ui-10, DD-43); tablet/mobile keep a uniform non-tiered grid (DD-44). Revision 12: Project gains required url field (4 real GitHub URLs); FeaturedSystems.tsx's .project-card-cell wrapper retagged div->a (target=_blank rel=noopener noreferrer aria-label), no new ProjectCard prop (DD-45)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-4", "AC-8", "AC-11", "AC-13", "DD-42", "DD-43", "DD-44", "DD-45", "DD-48"],
+        "files": [
+          "apps/web/src/data/projects.ts",
+          "apps/web/src/lib/treemap.ts",
+          "apps/web/src/lib/treemap.test.ts",
+          "apps/web/src/components/home/ProjectCard.tsx",
+          "apps/web/src/components/home/ProjectCard.test.tsx",
+          "apps/web/src/components/home/FeaturedSystems.tsx"
+        ],
+        "deletes": [
+          "apps/web/src/data/projects.test.ts",
+          "apps/web/src/assets/projects/aura-core.webp",
+          "apps/web/src/assets/projects/kinetic-ui.webp",
+          "apps/web/src/assets/projects/nebula-flux.webp"
+        ],
+        "dependencies": ["ui-2", "ui-13"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-7",
+        "title": "Connect.tsx: hand-roll own <section> (bypass shared Section, DD-38) so footer breaks out of container-max; add subtitle copy between headline and CTA; footer goes full-bleed no inner cap (DD-39); bordered CTA card + nested <footer> (brand/year + GitHub/LinkedIn/Email, no tagline) via home.css (ui-10)",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-5", "AC-11", "AC-13", "DD-2", "DD-31", "DD-33", "DD-35", "DD-36", "DD-38", "DD-39"],
+        "files": [
+          "apps/web/src/components/home/Connect.tsx",
+          "apps/web/public/locales/en/home.json",
+          "apps/web/public/locales/es/home.json"
+        ],
+        "dependencies": ["ui-2", "ui-13"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-10",
+        "title": "Compose HomePage (Connect replaces Challenges+CtaBand+Footer) + home.css deltas: .hero/.section--snap min-height→height (DD-19 REVERSED) + overflow-y:auto fallback (DD-32); Builder image position:absolute out of grid sizing (DD-28) + container-max height:100%/grid-template-rows:1fr (DD-28) + content centering; .challenges→.connect rename + centering (DD-31); .cta-band rules deleted (DD-33); .connect__footer nested-footer layout (DD-35); Builder breakpoint 1024→768, tablet 2-col tier, borders, drop dead rules; AC-9 landmark test split — contentinfo role lost when footer nests in section (DD-36), explicit regression test added. Revision 11: Featured Systems grid rewritten from static tier CSS to position:relative/absolute + --rect-* custom props consuming ui-6's treemap() output, desktop-only >=1024px (DD-43); tablet/mobile simplified to a uniform non-tiered grid (DD-44); new .builder__facts a link styling (DD-41). Revision 12: .project-card-cell gains color/text-decoration reset + hover/focus-visible border+outline affordance for the new whole-card link (DD-46, DD-47); HomePage.test.tsx AC-4 gains the card-is-a-link test",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-1", "AC-2", "AC-3", "AC-4", "AC-5", "AC-8", "AC-9", "AC-11", "AC-12", "AC-13", "DD-3", "DD-7", "DD-8", "DD-9", "DD-13", "DD-16", "DD-17", "DD-19", "DD-21", "DD-22", "DD-23", "DD-28", "DD-31", "DD-32", "DD-33", "DD-34", "DD-35", "DD-36", "DD-38", "DD-39", "DD-41", "DD-42", "DD-43", "DD-44", "DD-46", "DD-47"],
+        "files": [
+          "apps/web/src/pages/HomePage.tsx",
+          "apps/web/src/pages/HomePage.test.tsx",
+          "apps/web/src/pages/home.css"
+        ],
+        "dependencies": ["ui-1", "ui-3", "ui-4", "ui-5", "ui-6", "ui-7"],
+        "status": "pending"
+      },
+      {
+        "id": "ui-11",
+        "title": "Wire favicon/manifest icons + SEO meta tags",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["AC-10", "DD-6"],
+        "files": [
+          "apps/web/index.html",
+          "apps/web/public/favicon.ico",
+          "apps/web/public/apple-touch-icon.png",
+          "apps/web/public/icon-192.png",
+          "apps/web/public/icon-512.png",
+          "apps/web/public/icon-192-maskable.png",
+          "apps/web/public/icon-512-maskable.png",
+          "apps/web/public/manifest.json"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      },
+      {
+        "id": "ui-17",
+        "title": "Remove unused dependencies (tailwindcss, zod, zustand) from apps/web — confirmed zero refs; verify build/type-check/lint after",
+        "agent": "j-flow-frontend",
+        "spec_refs": ["DD-24"],
+        "files": [
+          "apps/web/package.json",
+          "pnpm-lock.yaml"
+        ],
+        "dependencies": [],
+        "status": "pending"
+      }
+    ]
+  },
+  "ac_coverage": {
+    "AC-1": ["ui-3", "ui-4", "ui-7", "ui-15", "ui-16", "ui-18", "ui-19", "ui-10"],
+    "AC-2": ["ui-4", "ui-10"],
+    "AC-3": ["ui-5", "ui-10"],
+    "AC-4": ["ui-6", "ui-10"],
+    "AC-5": ["ui-7", "ui-10"],
+    "AC-8": ["ui-5", "ui-6", "ui-10"],
+    "AC-9": ["ui-1", "ui-14", "ui-16", "ui-19", "ui-10"],
+    "AC-10": ["ui-11"],
+    "AC-11": ["ui-3", "ui-4", "ui-5", "ui-6", "ui-7", "ui-13", "ui-14", "ui-10"],
+    "AC-12": ["ui-1", "ui-10"],
+    "AC-13": ["ui-1", "ui-5", "ui-6", "ui-7", "ui-10"]
+  },
+  "uncovered_acs": []
+}
