@@ -9,6 +9,12 @@ const dir = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [react()],
   test: {
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'lcov'],
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/**/*.stories.tsx', 'src/**/*.test.{ts,tsx}', 'src/**/*.d.ts'],
+    },
     projects: [
       {
         extends: true,
