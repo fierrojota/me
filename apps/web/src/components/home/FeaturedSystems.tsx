@@ -43,6 +43,11 @@ export function FeaturedSystems() {
               tagVariant={project.tagVariant}
               title={t(project.title)}
               description={t(project.description)}
+              image={
+                project.image && project.imageAlt
+                  ? { ...project.image, alt: t(project.imageAlt) }
+                  : undefined
+              }
             />
           </a>
         ))}

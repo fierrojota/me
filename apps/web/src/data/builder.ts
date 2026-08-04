@@ -9,6 +9,7 @@ export type BuilderProfile = {
   company: { name: string; url: string };
   specializationKey: string; // i18n key path
   philosophyKey: string; // i18n key path
+  humanKey: string; // i18n key path — the personal/warm fact (family), terminal-styled
   quoteKey: string; // i18n key path
   stats: BuilderStat[];
 };
@@ -18,6 +19,7 @@ export const builderProfile: BuilderProfile = {
   company: { name: 'Fz Sports', url: 'https://www.fzsports.com/' },
   specializationKey: 'builder.factSpecialization',
   philosophyKey: 'builder.factPhilosophy',
+  humanKey: 'builder.factHuman',
   quoteKey: 'builder.quote',
   stats: [
     { labelKey: 'builder.stat1Label', titleKey: 'builder.stat1Title', bodyKey: 'builder.stat1Body' },

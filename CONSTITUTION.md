@@ -36,9 +36,16 @@ Each top-level, nav-destination section on a page's desktop layout (≥1024px) f
 
 **Rationale**: this "independent pages" navigation feel was established on the landing route (`04-design-polish`, AC-13) and is now a durable structural rule for the site, not a one-feature choice.
 
+### P6 — evidence-backed public claims
+
+Every public claim on the site (roles, specializations, project descriptions, metrics, tech stack) must be backed by linkable evidence — a repo, a live URL, or a shipped artifact. No aspirational or fictional capability may be stated as present fact. Ambition is expressed through real, in-progress work, not invented specs or metrics.
+
+**Rationale**: brand credibility depends on cross-surface consistency (site ↔ GitHub ↔ LinkedIn). An unbacked claim is detectable the moment a visitor cross-checks, and costs more trust than it buys (plan 010).
+
 ## Change log
 
 | Date | Change | Author |
 |------|--------|--------|
 | 2026-07-21 | Initial constitution | Jonathan Fierro |
 | 2026-07-28 | Added P5 (full-height, page-like sections) | Jonathan Fierro |
+| 2026-08-04 | Added P6 (evidence-backed public claims) | Jonathan Fierro |

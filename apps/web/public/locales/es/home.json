@@ -15,7 +15,7 @@
     "headlinePrefix": "INGENIERÍA PARA",
     "headlineHighlight": "ALTO RENDIMIENTO.",
     "headlineSuffix": "CONSTRUIDO CON RIGOR.",
-    "subcopy": "Arquitectura de sistemas escalables e infraestructura crítica de rendimiento. Destilando la complejidad en experiencias digitales de nivel terminal.",
+    "subcopy": "Ingeniería full-stack en React, NestJS, MongoDB y Flutter — construida con un proceso riguroso y spec-driven.",
     "ctaPrimary": "INICIALIZAR_VER_SISTEMAS",
     "ctaSecondary": "¿QUIÉN_ES_EL_CONSTRUCTOR?"
   },
@@ -24,8 +24,9 @@
     "imageAlt": "Jota Fierro trabajando en un puesto de desarrollo con múltiples monitores",
     "heading": "EL_CONSTRUCTOR",
     "factRolePrefix": "> ROL_ACTUAL: Backend Developer /",
-    "factSpecialization": "> ESPECIALIZACIÓN: Infraestructura de Alto Tráfico",
+    "factSpecialization": "> STACK: React · NestJS · MongoDB · Flutter",
     "factPhilosophy": "> FILOSOFÍA: Simplicidad Sobre Ingenio",
+    "factHuman": "> OFFLINE: Esposo y padre de dos pequeñas que me roban el ❤️ — mi fuerza día a día 🏅",
     "quote": "\"Equilibro el rigor técnico con un enfoque ingenioso y centrado en la innovación para resolver problemas. El código es una fuerza dinámica.\"",
     "stat1Label": "01_PRÁCTICA",
     "stat1Title": "ARQUITECTURA_LIMPIA",
@@ -36,32 +37,36 @@
   },
   "featuredSystems": {
     "heading": "SISTEMAS_DESTACADOS",
-    "subcopy": "REGISTRO_DE_INGENIERÍA: Selección de sistemas distribuidos y aplicaciones de alto rendimiento.",
+    "subcopy": "REGISTRO_DE_INGENIERÍA: Productos, herramientas y flujos que diseño y construyo — de principio a fin.",
     "githubLink": "ABRIR_GITHUB [TODOS]",
+    "aura": {
+      "tag": "[ PRODUCTO ]",
+      "title": "AURA",
+      "description": "Master Your Soul — un sistema personal para mapear cómo piensas y construyes. React · NestJS · MongoDB · Flutter. En desarrollo.",
+      "imageAlt": "Key-art de AURA — 'Master Your Soul'."
+    },
+    "jFlow": {
+      "tag": "[ FRAMEWORK ]",
+      "title": "J-FLOW",
+      "description": "Framework open source de Spec-Driven Development — un flujo con gates para MongoDB · NestJS · React · Flutter.",
+      "imageAlt": "Key-art de j-flow — pipeline de spec-driven development."
+    },
     "superclean": {
       "tag": "[ HERRAMIENTAS_CLI ]",
       "title": "SUPERCLEAN",
-      "description": "Utilidad de línea de comandos para limpiar cachés, logs y la papelera del sistema en macOS."
+      "description": "Utilidad de línea de comandos para limpiar cachés, logs y basura del sistema en macOS. Publicada en npm.",
+      "imageAlt": "Key-art de superclean — limpieza de cachés y basura en macOS."
     },
-    "backendTaskTracker": {
-      "tag": "[ HERRAMIENTAS_CLI ]",
-      "title": "R_BACKEND_TASK_TRACKER_CLI",
-      "description": "CLI de seguimiento de tareas backend que resuelve el track de Backend de roadmap.sh — parsing de comandos, persistencia en JSON, CRUD por terminal."
-    },
-    "jUtils": {
-      "tag": "[ UTILIDADES_DEV ]",
-      "title": "J_UTILS",
-      "description": "Utilidades en TypeScript y experimentos de prueba de concepto."
-    },
-    "wrapperPath": {
-      "tag": "[ UTILIDADES_DEV ]",
-      "title": "WRAPPER_PATH",
-      "description": "Wrapper ligero alrededor del módulo path de Node."
+    "me": {
+      "tag": "[ WEB ]",
+      "title": "ME",
+      "description": "Este sitio — jotafierro.me, construido con el mismo proceso spec-driven. React · Vite. Open source.",
+      "imageAlt": "Key-art de jotafierro.me — sitio personal."
     }
   },
   "connect": {
     "headline": "CONSTRUYE_SISTEMAS_NOTABLES_AHORA",
-    "subtitle": "Actualmente acepto un número selecto de colaboraciones de ingeniería para el Q4 de 2024. Construyamos algo que perdure.",
+    "subtitle": "Actualmente acepto un número selecto de colaboraciones de ingeniería para el Q{{quarter}} de {{year}}. Construyamos algo que perdure.",
     "email": "CONNECT@JOTAFIERRO.ME",
     "status": "ESPERANDO_CONEXIÓN_ENTRANTE...",
     "footerBrand": "jotafierro.me // {{year}}",

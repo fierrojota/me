@@ -30,6 +30,7 @@ export function Builder() {
           </li>
           <li>{t(builderProfile.specializationKey)}</li>
           <li>{t(builderProfile.philosophyKey)}</li>
+          <li>{t(builderProfile.humanKey)}</li>
         </ul>
         <blockquote className="builder__quote text-body-lg">{t(builderProfile.quoteKey)}</blockquote>
         <div className="builder__stats">

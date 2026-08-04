@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import en from '../../public/locales/en/home.json';
 import { testI18n } from '../lib/test-i18n';
+import { nextQuarter } from '../lib/quarter';
 import { HomePage } from './HomePage';
 
 function renderHomePage() {
@@ -57,6 +58,7 @@ describe('HomePage', () => {
       expect(screen.getByText(new RegExp(en.builder.factRolePrefix))).toBeInTheDocument();
       expect(screen.getByText(en.builder.factSpecialization)).toBeInTheDocument();
       expect(screen.getByText(en.builder.factPhilosophy)).toBeInTheDocument();
+      expect(screen.getByText(en.builder.factHuman)).toBeInTheDocument();
       expect(screen.getByText(en.builder.quote)).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: en.builder.stat1Title })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: en.builder.stat2Title })).toBeInTheDocument();
@@ -72,41 +74,40 @@ describe('HomePage', () => {
   });
 
   describe('AC-4 — Featured Systems', () => {
-    it('renders the OPEN_GITHUB link and exactly 4 project cards', () => {
+    it('renders the OPEN_GITHUB link and all 4 project cards', () => {
       renderHomePage();
       expect(screen.getByRole('link', { name: en.featuredSystems.githubLink })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: en.featuredSystems.aura.title })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: en.featuredSystems.jFlow.title })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: en.featuredSystems.superclean.title })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: en.featuredSystems.backendTaskTracker.title })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: en.featuredSystems.jUtils.title })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: en.featuredSystems.wrapperPath.title })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: en.featuredSystems.me.title })).toBeInTheDocument();
     });
 
-    it('gives the highest-weight project (superclean) a larger computed area than the lowest-weight ones', () => {
+    it('sizes the desktop treemap by weight (aura > j-flow > superclean > me)', () => {
       renderHomePage();
-      const area = (el: Element) => {
-        const style = (el as HTMLElement).style;
-        return parseFloat(style.getPropertyValue('--rect-width')) * parseFloat(style.getPropertyValue('--rect-height'));
+      const area = (title: string) => {
+        const cell = screen.getByRole('heading', { name: title }).closest('.project-card-cell')! as HTMLElement;
+        return (
+          parseFloat(cell.style.getPropertyValue('--rect-width')) *
+          parseFloat(cell.style.getPropertyValue('--rect-height'))
+        );
       };
-      const bigCell = screen.getByRole('heading', { name: en.featuredSystems.superclean.title }).closest('.project-card-cell')!;
-      const smallCell = screen.getByRole('heading', { name: en.featuredSystems.jUtils.title }).closest('.project-card-cell')!;
-      expect(area(bigCell)).toBeGreaterThan(area(smallCell));
+      expect(area(en.featuredSystems.aura.title)).toBeGreaterThan(area(en.featuredSystems.jFlow.title));
+      expect(area(en.featuredSystems.jFlow.title)).toBeGreaterThan(area(en.featuredSystems.superclean.title));
+      expect(area(en.featuredSystems.superclean.title)).toBeGreaterThan(area(en.featuredSystems.me.title));
     });
 
-    it('equal-weight projects (j-utils, wrapper-path) get equal computed area', () => {
+    it('renders each project hero image with its alt text (not the fallback glyph)', () => {
       renderHomePage();
-      const area = (el: Element) => {
-        const style = (el as HTMLElement).style;
-        return parseFloat(style.getPropertyValue('--rect-width')) * parseFloat(style.getPropertyValue('--rect-height'));
-      };
-      const cellA = screen.getByRole('heading', { name: en.featuredSystems.jUtils.title }).closest('.project-card-cell')!;
-      const cellB = screen.getByRole('heading', { name: en.featuredSystems.wrapperPath.title }).closest('.project-card-cell')!;
-      expect(area(cellA)).toBeCloseTo(area(cellB), 5);
+      const auraImg = screen.getByRole('img', { name: en.featuredSystems.aura.imageAlt });
+      expect(auraImg).toHaveAttribute('src', '/systems/aura.webp');
+      expect(screen.getByRole('img', { name: en.featuredSystems.jFlow.imageAlt })).toHaveAttribute('src', '/systems/j-flow.webp');
     });
 
     it('each project card is a link to its own url, opening in a new tab', () => {
       renderHomePage();
-      const link = screen.getByRole('link', { name: en.featuredSystems.superclean.title });
-      expect(link).toHaveAttribute('href', 'https://github.com/jotafierro/superclean');
+      const link = screen.getByRole('link', { name: en.featuredSystems.aura.title });
+      expect(link).toHaveAttribute('href', 'https://aura-dev.jotafierro.me/');
       expect(link).toHaveAttribute('target', '_blank');
       expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     });
@@ -116,7 +117,11 @@ describe('HomePage', () => {
     it('renders the headline, subtitle, mailto cta and status microcopy', () => {
       renderHomePage();
       expect(screen.getByRole('heading', { name: en.connect.headline })).toBeInTheDocument();
-      expect(screen.getByText(en.connect.subtitle)).toBeInTheDocument();
+      const { quarter, year } = nextQuarter();
+      const expectedSubtitle = en.connect.subtitle
+        .replace('{{quarter}}', String(quarter))
+        .replace('{{year}}', String(year));
+      expect(screen.getByText(expectedSubtitle)).toBeInTheDocument();
       expect(screen.getByRole('link', { name: en.connect.email })).toHaveAttribute(
         'href',
         'mailto:connect@jotafierro.me',
