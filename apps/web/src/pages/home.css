@@ -4,14 +4,20 @@
 
 /* Vertical rhythm shared by every section */
 .section {
-  padding-block: 64px;
+  padding-block: 30px;
   scroll-margin-top: var(--site-header-height);
 }
 
-@media (min-width: 1024px) {
-  .section {
-    padding-block: 128px;
-  }
+/* Overflow guard (009): this site's "terminal" aesthetic is full of long
+   WORD_WITH_UNDERSCORES / mono tokens (R_BACKEND_TASK_TRACKER_CLI,
+   "> SPECIALIZATION: …", etc.) that don't wrap by default and fix a
+   min-content wider than narrow phone viewports (≤~390px), forcing a
+   horizontal page scroll. `anywhere` (not `break-word`) lets them break AND
+   lowers the intrinsic min-width, so the page fits. Only bites when content
+   would otherwise overflow — desktop layout is untouched. Supersedes the
+   007-era `.connect__card h2` rule, which this now covers. */
+.section :where(h1, h2, h3, p, a, span, li) {
+  overflow-wrap: anywhere;
 }
 
 /* Header */
@@ -91,7 +97,6 @@
 .builder {
   background: var(--surface-container);
   color: var(--on-surface-variant);
-  padding-block: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,6 +188,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+/* On narrow phones the two 1fr columns are too cramped for the mono labels
+   (01_PRACTICE, CLEAN_ARCH), which then break mid-token under the 009 wrap
+   guard. One column gives each stat card the full width to render cleanly. */
+@media (max-width: 479px) {
+  .builder__stats {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Featured Systems */
@@ -310,7 +324,6 @@
 .connect {
   background: var(--surface-container);
   color: var(--on-surface-variant);
-  padding-block: 64px;
   display: flex;
   flex-direction: column;
 }
