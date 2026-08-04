@@ -42,12 +42,15 @@ test.describe('Home page', () => {
     const cards = page.locator('.project-card-cell');
     await expect(cards).toHaveCount(4);
 
-    const titles = ['SUPERCLEAN', 'R_BACKEND_TASK_TRACKER_CLI', 'J_UTILS', 'WRAPPER_PATH'];
-    for (let i = 0; i < titles.length; i++) {
+    for (let i = 0; i < 4; i++) {
       expect(await cards.nth(i).evaluate((el) => el.tagName)).toBe('A');
     }
+
+    // Exact heading match — a substring match on 'ME' would also hit
+    // "developMEnt" in the AURA card's description.
+    const titles = ['AURA', 'J-FLOW', 'SUPERCLEAN', 'ME'];
     for (const title of titles) {
-      await expect(page.locator('.project-card-cell', { hasText: title })).toBeVisible();
+      await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
     }
   });
 
