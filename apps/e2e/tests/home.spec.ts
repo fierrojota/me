@@ -98,8 +98,12 @@ test.describe('Home page', () => {
       (window as unknown as { __noReloadMarker?: boolean }).__noReloadMarker = true;
     });
 
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+
     await page.getByRole('button', { name: 'ES' }).click();
     await expect(page.locator('.hero__highlight')).toHaveText('ALTO RENDIMIENTO.');
+    // The document must re-announce its language, not just swap the copy.
+    await expect(page.locator('html')).toHaveAttribute('lang', 'es');
 
     const markerSurvived = await page.evaluate(
       () => (window as unknown as { __noReloadMarker?: boolean }).__noReloadMarker,
