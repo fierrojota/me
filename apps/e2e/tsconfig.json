@@ -1,0 +1,12 @@
+{
+  "extends": "@me/config/tsconfig.base.json",
+  "compilerOptions": {
+    /* DOM is required even though these specs run in Node: `page.evaluate()`
+       callbacks are serialized and executed inside the browser, so they
+       reference `window`/`document`/`HTMLElement`. */
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["tests", "playwright.config.ts"]
+}

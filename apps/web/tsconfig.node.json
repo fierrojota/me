@@ -1,13 +1,15 @@
 {
+  "extends": "@me/config/tsconfig.base.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "es2023",
     "lib": ["ES2023"],
     "types": ["node"],
-    "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* This config covers build-time code (vite.config.ts), not browser code —
+       hence nodenext resolution instead of the base's bundler mode. */
     "module": "nodenext",
+    "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",

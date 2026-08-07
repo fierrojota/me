@@ -7,6 +7,10 @@
     ".": "./src/index.ts"
   },
   "devDependencies": {
+    "@me/config": "workspace:*",
     "typescript": "^5.4.0"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit"
   }
 }

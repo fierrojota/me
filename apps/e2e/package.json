@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.61.1",
-    "@types/node": "^24.13.2"
+    "@me/config": "workspace:*",
+    "@playwright/test": "1.62.1",
+    "@types/node": "^24.13.2",
+    "typescript": "~6.0.2"
   }
 }
