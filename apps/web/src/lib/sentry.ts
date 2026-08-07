@@ -21,13 +21,12 @@ export function initSentry(): void {
     dsn: import.meta.env.VITE_SENTRY_DSN,
     environment: import.meta.env.MODE,
     release: version,
-    integrations: [
-      Sentry.browserTracingIntegration(),
-      Sentry.replayIntegration({ maskAllText: true, blockAllMedia: true }),
-    ],
+    // Session Replay was dropped (2026-08-07): rrweb cost 39.3 kB gzip — a third
+    // of the whole app — to record a one-page portfolio, and its DOM-wide
+    // MutationObserver fed on the nav indicator's per-scroll inline style writes.
+    // Tracing stays: Web Vitals are the point of P1.
+    integrations: [Sentry.browserTracingIntegration()],
     tracesSampleRate: parseSampleRate(import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE, 0.2),
-    replaysSessionSampleRate: parseSampleRate(import.meta.env.VITE_SENTRY_REPLAYS_SESSION_SAMPLE_RATE, 0.1),
-    replaysOnErrorSampleRate: parseSampleRate(import.meta.env.VITE_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE, 1.0),
     beforeSend(event) {
       const level = (event.level as SentryLevel | undefined) ?? 'error';
       return meetsLevelThreshold(level, levelThreshold) ? event : null;

@@ -5,12 +5,16 @@ node_modules/
 dist/
 **/build/
 
-# Environment
-.env
-.env.local
-.env.*.local
-.env.development
-.env.production
+# Environment — deny every .env variant, then re-allow the committed templates
+.env*
+!.env.example
+
+# Secrets & keys
+*.pem
+*.key
+id_rsa*
+secrets*.json
+.npmrc.local
 
 # Logs
 *.log
@@ -61,6 +65,7 @@ temp/
 # Internal dev artifacts — kept private, backed up in projects-internal repo
 /PRODUCT.md
 /CLAUDE.md
+/CLAUDE.local.md
 /.claude/
 /.specs/README.md
 /.specs/.agents/

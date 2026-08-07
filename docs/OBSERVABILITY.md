@@ -1,6 +1,8 @@
 # Observability — me
 
-Error tracking, performance tracing, and session replay for `apps/web` via `@sentry/react`, reporting to a GlitchTip instance (a drop-in Sentry-protocol ingest endpoint).
+Error tracking and performance tracing for `apps/web` via `@sentry/react`, reporting to a GlitchTip instance (a drop-in Sentry-protocol ingest endpoint).
+
+> **Session Replay removed (2026-08-07).** rrweb cost 39.3 kB gzip — about a third of the whole app bundle — to record a single-page portfolio, and its DOM-wide `MutationObserver` had to process the nav indicator's inline style writes on every scroll. Tracing stays: Web Vitals are the point of CONSTITUTION P1.
 
 ## Run
 
@@ -12,7 +14,7 @@ pnpm --filter @me/web dev
 
 ## Where things live
 
-- `apps/web/src/lib/sentry.ts` — `initSentry()`, dynamically imported and called from `main.tsx` once the browser is idle (after initial render), not on the critical path
+- `apps/web/src/lib/sentry.ts` — `initSentry()`, dynamically imported and called from `main.tsx` once the browser is idle (after initial render), not on the critical path. The import is skipped entirely when `VITE_SENTRY_DSN` is unset, so DSN-less builds (previews, local, CI) never download the SDK to then no-op.
 - `apps/web/src/main.tsx` — wraps `<App />` in the hand-rolled `ErrorBoundary` (`apps/web/src/lib/error-boundary.tsx`)
 - GlitchTip project (dev): [`app.glitchtip.com/26058`](https://app.glitchtip.com/26058)
 - DSN lives in `apps/web/.env` (gitignored) — copy from `apps/web/.env.example`, never commit the real value
@@ -23,8 +25,6 @@ pnpm --filter @me/web dev
 |---|---|---|
 | `VITE_SENTRY_DSN` | *(empty)* | Ingest endpoint. Empty = SDK no-op (nothing sent). |
 | `VITE_SENTRY_TRACES_SAMPLE_RATE` | `0.2` | Fraction of page loads/navigations traced as performance transactions. |
-| `VITE_SENTRY_REPLAYS_SESSION_SAMPLE_RATE` | `0.1` | Fraction of normal sessions recorded as session replay. |
-| `VITE_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE` | `1.0` | Fraction of sessions recorded when an error occurs. |
 | `VITE_SENTRY_LEVEL` | `warning` | Minimum event level sent (`debug` < `info` < `warning` < `error` < `fatal`); lower levels are dropped. |
 
 ## Ad-blocker gotcha
