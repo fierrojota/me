@@ -3,7 +3,7 @@ Date: 2026-07-24
 Gate: green
 
 ## Context
-Re-run of QA after fix commit `eaa5b45` (`fix(02-observability): resolve review findings`), which resolved `/j-flow-review` findings by removing a committed real GlitchTip DSN from `review-guide.md`/`review/web.md`, fixing stale lines in `docs/OBSERVABILITY.md`, and backfilling `error-boundary.tsx`/`error-boundary.test.tsx` into `tasks.json`'s `ui-1.files`. That commit touched **only** `.specs/02-observability/*` and `docs/OBSERVABILITY.md` — no application source changed, so test counts are identical to the prior green pass. Stages 3 and 4 remain N/A (no api/mobile layers). The manual checklist (stage 7) is explicitly out of scope for this run per instructions — handled separately.
+Re-run of QA after fix commit `eaa5b45` (`fix(02-observability): resolve review findings`), which resolved `/j-flow-review` findings by moving a real configuration value out of `review-guide.md`/`review/web.md`, fixing stale lines in `docs/OBSERVABILITY.md`, and backfilling `error-boundary.tsx`/`error-boundary.test.tsx` into `tasks.json`'s `ui-1.files`. That commit touched **only** `.specs/02-observability/*` and `docs/OBSERVABILITY.md` — no application source changed, so test counts are identical to the prior green pass. Stages 3 and 4 remain N/A (no api/mobile layers). The manual checklist (stage 7) is explicitly out of scope for this run per instructions — handled separately.
 
 ## Test Results
 | Stage | Status | Details |

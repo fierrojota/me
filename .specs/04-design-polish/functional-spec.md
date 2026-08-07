@@ -66,7 +66,7 @@ Visiting `/` in a browser.
 **Then:**
 - Section heading + subcopy render, plus `OPEN_GITHUB [ALL]` link
 - Projects render from a data source (array of project objects: `id`, `tag`, `title`, `description`, `imageAlt`, `weight`, `url`, optional `image`) — not hardcoded per-card JSX — so a future admin/CMS can create/edit projects by producing the same shape
-- Project list reflects the author's real public repositories at `github.com/jotafierro` (not placeholder names) — content curated with the author, since the currently-public repos are modest (kata/practice/utility repos) pending release of larger private projects. Current set:
+- Project list reflects the author's real public repositories at `github.com/jotafierro` (not placeholder names) — the set is curated with the author and evolves as more work is published. Current set:
   - `superclean` — weight 800 — `CLI_TOOLS` — "Command-line utility for clearing macOS caches, logs, and system trash" — `https://github.com/jotafierro/superclean`
   - `r-backend-task-tracker-cli` — weight 450 — `CLI_TOOLS` — "Backend task-tracker CLI solving roadmap.sh's Backend track — command parsing, JSON persistence, CRUD via terminal" — `https://github.com/jotafierro/r-backend-task-tracker-cli`
   - `j-utils` — weight 200 — `DEV_UTILS` — "TypeScript utilities and proof-of-concept experiments" — `https://github.com/jotafierro/j-utils`

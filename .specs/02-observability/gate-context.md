@@ -32,10 +32,10 @@
   → AC-1 re-confirmed by user against hand-rolled error-boundary.tsx; AC-2/4/5/6 carried forward (sentry.ts unchanged by fix); bundle regression resolved (+1.16 kB gzip vs. +89.34 kB)
 
 [REVIEW] changes-requested 2026-07-24
-  → 1 major (real DSN committed in review-guide.md/review/web.md), 2 minor (stale docs/OBSERVABILITY.md lines), 1 minor (tasks.json file-list gap) — see review-findings.md
+  → 1 major (real config value embedded in review-guide.md/review/web.md), 2 minor (stale docs/OBSERVABILITY.md lines), 1 minor (tasks.json file-list gap) — see review-findings.md
 
 [QA] green 2026-07-24
-  → re-ran after fix eaa5b45 (review findings: DSN removed from spec docs, stale OBSERVABILITY.md lines fixed, tasks.json file-list backfilled) — no app source touched
+  → re-ran after fix eaa5b45 (review findings: config value moved out of spec docs, stale OBSERVABILITY.md lines fixed, tasks.json file-list backfilled) — no app source touched
   → lint clean, 9 unit tests passing (3 files, unchanged), 1 Playwright e2e passing, Storybook build clean, checklist 6/6 (carried forward, no source change to re-verify)
 
 [REVIEW] approved 2026-07-24
