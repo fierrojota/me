@@ -1,3 +1,15 @@
+/* Declares the site as already-dark. Two effects, both wanted:
+   1. Native UI (scrollbars, form controls, the pre-CSS canvas) renders dark
+      instead of flashing light.
+   2. Dark-mode extensions such as Dark Reader detect it and leave the palette
+      alone. Without it they re-tint an already-dark site: a Lighthouse run
+      with Dark Reader active reported our primary button as #d9d5d0 on
+      #4f6909 (4.28:1, failing) when the real values are #0b1326 on #bef264
+      (14.16:1, AAA). */
+:root {
+  color-scheme: dark;
+}
+
 [data-theme="dark"] {
   --background: #0b1326;
   --surface: #0b1326;
