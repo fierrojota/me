@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "lint": "oxlint"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "@me/config": "workspace:*",
     "@playwright/test": "1.62.1",
     "@types/node": "^24.13.2",
+    "oxlint": "^1.71.0",
     "typescript": "~6.0.2"
   }
 }

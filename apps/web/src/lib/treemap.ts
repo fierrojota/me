@@ -15,7 +15,8 @@ export function treemap(items: WeightedItem[]): Rect[] {
     .map((item, index) => ({ item, index }))
     .sort((a, b) => b.item.weight - a.item.weight); // stable: ties keep original order
 
-  const rects: Rect[] = new Array(items.length);
+  // Filled by index inside split(), which is why order survives the sort above.
+  const rects: Rect[] = [];
   split(order, { top: 0, left: 0, width: 100, height: 100 }, 'x', rects);
   return rects;
 }
