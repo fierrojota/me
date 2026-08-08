@@ -138,6 +138,17 @@
   position: absolute;
   top: 16px;
   left: 16px;
+  /* Solid fill: .chip--neutral is transparent by default, and this one sits on
+     top of the photo, so its text was reading against whatever pixels happened
+     to be behind it. Not a scoring technicality — a light patch in that corner
+     makes 14px text unreadable. on-surface-variant on surface-container is
+     9.62:1. */
+  background: var(--surface-container);
+  /* Explicit stacking: the chip and .builder__image are both absolutely
+     positioned siblings, so paint order fell out of DOM order. Stating it
+     lets axe resolve what is behind the text instead of reporting
+     "bgOverlap". */
+  z-index: 1;
 }
 
 .builder__image {

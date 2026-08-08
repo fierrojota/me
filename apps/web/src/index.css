@@ -4,10 +4,25 @@ html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
 
 body {
   background-color: var(--background);
-  background-image: radial-gradient(circle, var(--outline-variant) 1px, transparent 1px);
-  background-size: var(--spacing-margin) var(--spacing-margin);
   color: var(--on-surface);
   font-family: var(--font-sans);
+}
+
+/* The dot grid lives on a fixed pseudo-element rather than on body's own
+   background-image. Identical visual result, but it keeps body's computed
+   background a flat colour: with the gradient there, axe-core cannot resolve
+   what is behind any text and returns `incomplete` with messageKey
+   "bgGradient" for every element over it. Lighthouse reports those
+   undetermined results as contrast failures — the text was never actually
+   low-contrast (the primary buttons measure 14.16:1), it was unmeasurable. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--outline-variant) 1px, transparent 1px);
+  background-size: var(--spacing-margin) var(--spacing-margin);
 }
 
 .app-shell {
