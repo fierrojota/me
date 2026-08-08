@@ -1,3 +1,12 @@
+import auraLarge from '../assets/systems/aura.webp';
+import auraSmall from '../assets/systems/aura-688.webp';
+import jFlowLarge from '../assets/systems/j-flow.webp';
+import jFlowSmall from '../assets/systems/j-flow-688.webp';
+import supercleanLarge from '../assets/systems/superclean.webp';
+import supercleanSmall from '../assets/systems/superclean-688.webp';
+import meLarge from '../assets/systems/me.webp';
+import meSmall from '../assets/systems/me-688.webp';
+
 export type Project = {
   id: string;
   tag: string; // i18n key path, e.g. 'featuredSystems.superclean.tag'
@@ -7,7 +16,7 @@ export type Project = {
   tagVariant?: 'success' | 'neutral';
   weight: number;
   url: string; // the whole card navigates here
-  image?: { src: string; width: number; height: number };
+  image?: { src: string; srcSmall: string; width: number; height: number };
 };
 
 export const projects: Project[] = [
@@ -19,7 +28,7 @@ export const projects: Project[] = [
     imageAlt: 'featuredSystems.aura.imageAlt',
     weight: 900, // flagship — biggest cell in the desktop treemap
     url: 'https://aura-dev.jotafierro.me/',
-    image: { src: '/systems/aura.webp', width: 1376, height: 768 },
+    image: { src: auraLarge, srcSmall: auraSmall, width: 1376, height: 768 },
   },
   {
     id: 'jFlow',
@@ -29,7 +38,7 @@ export const projects: Project[] = [
     imageAlt: 'featuredSystems.jFlow.imageAlt',
     weight: 500,
     url: 'https://github.com/jotafierro/j-flow',
-    image: { src: '/systems/j-flow.webp', width: 1376, height: 768 },
+    image: { src: jFlowLarge, srcSmall: jFlowSmall, width: 1376, height: 768 },
   },
   {
     id: 'superclean',
@@ -40,7 +49,7 @@ export const projects: Project[] = [
     tagVariant: 'neutral',
     weight: 300,
     url: 'https://github.com/jotafierro/superclean',
-    image: { src: '/systems/superclean.webp', width: 1376, height: 768 },
+    image: { src: supercleanLarge, srcSmall: supercleanSmall, width: 1376, height: 768 },
   },
   {
     id: 'me',
@@ -51,6 +60,6 @@ export const projects: Project[] = [
     tagVariant: 'neutral',
     weight: 200,
     url: 'https://github.com/jotafierro/me',
-    image: { src: '/systems/me.webp', width: 1376, height: 768 },
+    image: { src: meLarge, srcSmall: meSmall, width: 1376, height: 768 },
   },
 ];

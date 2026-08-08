@@ -5,7 +5,10 @@ import { I18nextProvider } from 'react-i18next';
 import en from '../locales/en/home.json';
 import { testI18n } from '../lib/test-i18n';
 import { nextQuarter } from '../lib/quarter';
+import { projects } from '../data/projects';
 import { HomePage } from './HomePage';
+
+const projectById = (id: string) => projects.find((p) => p.id === id)!;
 
 function renderHomePage() {
   return render(
@@ -103,9 +106,17 @@ describe('HomePage', () => {
 
     it('renders each project hero image with its alt text (not the fallback glyph)', () => {
       renderHomePage();
+      // Asserted against the imported asset rather than a literal path: the
+      // images live in src/assets now so Vite fingerprints them, and the built
+      // URL is not knowable here. Both widths are checked, since a missing
+      // srcSmall would silently ship the 1376px file to every cell.
       const auraImg = screen.getByRole('img', { name: en.featuredSystems.aura.imageAlt });
-      expect(auraImg).toHaveAttribute('src', '/systems/aura.webp');
-      expect(screen.getByRole('img', { name: en.featuredSystems.jFlow.imageAlt })).toHaveAttribute('src', '/systems/j-flow.webp');
+      expect(auraImg).toHaveAttribute('src', projectById('aura').image!.src);
+      expect(auraImg.getAttribute('srcset')).toContain(projectById('aura').image!.srcSmall);
+      expect(screen.getByRole('img', { name: en.featuredSystems.jFlow.imageAlt })).toHaveAttribute(
+        'src',
+        projectById('jFlow').image!.src,
+      );
     });
 
     it('each project card is a link to its own url, opening in a new tab', () => {

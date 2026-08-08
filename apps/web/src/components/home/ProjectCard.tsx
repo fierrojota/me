@@ -5,7 +5,7 @@ export type ProjectCardProps = {
   tagVariant?: 'success' | 'neutral';
   title: string;
   description: string;
-  image?: { src: string; alt: string; width: number; height: number };
+  image?: { src: string; srcSmall: string; alt: string; width: number; height: number };
 };
 
 export function ProjectCard({ tag, tagVariant = 'success', title, description, image }: ProjectCardProps) {
@@ -26,7 +26,7 @@ export function ProjectCard({ tag, tagVariant = 'success', title, description, i
           // srcset lets the browser pick per cell size and per device pixel
           // ratio instead — the small cells stop downloading 1376px art, and
           // a retina screen still gets the large one.
-          srcSet={`${image.src.replace(/\.webp$/, '-688.webp')} 688w, ${image.src} 1376w`}
+          srcSet={`${image.srcSmall} 688w, ${image.src} 1376w`}
           sizes="(max-width: 819px) 92vw, (max-width: 1279px) 46vw, 45vw"
           alt={image.alt}
           width={image.width}

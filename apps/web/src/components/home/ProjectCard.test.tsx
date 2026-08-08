@@ -9,7 +9,13 @@ describe('ProjectCard', () => {
         tag="[ SYSTEM_ARCH ]"
         title="AURA_CORE"
         description="High-performance orchestration system."
-        image={{ src: '/aura-core.webp', alt: 'AURA_CORE preview', width: 1200, height: 675 }}
+        image={{
+          src: '/aura-core.webp',
+          srcSmall: '/aura-core-688.webp',
+          alt: 'AURA_CORE preview',
+          width: 1200,
+          height: 675,
+        }}
       />,
     );
     expect(screen.getByText('[ SYSTEM_ARCH ]')).toBeInTheDocument();
