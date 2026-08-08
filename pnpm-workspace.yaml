@@ -1,3 +1,25 @@
 packages:
   - "apps/*"
   - "packages/*"
+
+# Single source of truth for the Playwright version. apps/e2e pulls
+# @playwright/test and packages/ui pulls playwright; they are different npm
+# packages driving the SAME browser binary, so when they drift two Chromium
+# builds get downloaded. Plan 020 aligned them by hand; this makes it
+# structural. Both names need an entry — `catalog:` resolves by package name.
+catalog:
+  playwright: 1.62.1
+  "@playwright/test": 1.62.1
+
+# Moved here from package.json > pnpm.overrides: pnpm 11 no longer reads that
+# field and was silently ignoring it (it does warn, but an ignored security
+# override is easy to miss). Pins esbuild above the dev-server advisory.
+overrides:
+  esbuild: ^0.25.0
+
+# pnpm 10+ stopped running dependency install scripts by default — an install
+# script is arbitrary code from a transitive package, so it is opt-in now.
+# Only esbuild needs one here (it fetches its platform binary). Anything new
+# appearing in ERR_PNPM_IGNORED_BUILDS should be judged, not reflexively added.
+allowBuilds:
+  esbuild: true

@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@me/config": "workspace:*",
-    "@playwright/test": "1.62.1",
+    "@playwright/test": "catalog:",
     "@types/node": "^24.13.2",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2"
