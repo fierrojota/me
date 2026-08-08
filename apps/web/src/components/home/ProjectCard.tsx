@@ -5,10 +5,12 @@ export type ProjectCardProps = {
   tagVariant?: 'success' | 'neutral';
   title: string;
   description: string;
-  image?: { src: string; srcSmall: string; alt: string; width: number; height: number };
+  image?: { src: string; srcSmall: string; srcTiny: string; alt: string; width: number; height: number };
+  /** Per-card `sizes`; the treemap decides how wide this cell actually is. */
+  imageSizes?: string;
 };
 
-export function ProjectCard({ tag, tagVariant = 'success', title, description, image }: ProjectCardProps) {
+export function ProjectCard({ tag, tagVariant = 'success', title, description, image, imageSizes }: ProjectCardProps) {
   return (
     <Card>
       <div className="project-card__body">
@@ -26,8 +28,8 @@ export function ProjectCard({ tag, tagVariant = 'success', title, description, i
           // srcset lets the browser pick per cell size and per device pixel
           // ratio instead — the small cells stop downloading 1376px art, and
           // a retina screen still gets the large one.
-          srcSet={`${image.srcSmall} 688w, ${image.src} 1376w`}
-          sizes="(max-width: 819px) 92vw, (max-width: 1279px) 46vw, 45vw"
+          srcSet={`${image.srcTiny} 344w, ${image.srcSmall} 688w, ${image.src} 1376w`}
+          sizes={imageSizes ?? '(max-width: 819px) 92vw, 45vw'}
           alt={image.alt}
           width={image.width}
           height={image.height}

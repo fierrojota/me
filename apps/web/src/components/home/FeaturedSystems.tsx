@@ -27,7 +27,13 @@ export function FeaturedSystems() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={t(project.title)}
+            // No aria-label: it was set to the title alone, which overrode the
+            // card's visible text and left the accessible name ("AURA") not
+            // containing what a user actually reads ("[ PRODUCT ] AURA Master
+            // Your Soul — ..."). That breaks WCAG 2.5.3 Label in Name: someone
+            // using voice control who says a phrase they can see would not
+            // activate the link. Letting the name derive from the content is
+            // more verbose but correct.
             className="project-card-cell"
             style={
               {
@@ -48,6 +54,12 @@ export function FeaturedSystems() {
                   ? { ...project.image, alt: t(project.imageAlt) }
                   : undefined
               }
+              /* The cell's width is decided by the treemap, not by a fixed
+                 column, so a single `sizes` for every card made the browser
+                 request the same width for a 211px cell and a 616px one.
+                 Passing the real percentage lets it pick per card. Desktop is
+                 capped by container-max (1280px), hence the px form. */
+              imageSizes={`(max-width: 819px) 92vw, (max-width: 1279px) ${rects[index].width}vw, ${Math.round(rects[index].width * 12.8)}px`}
             />
           </a>
         ))}

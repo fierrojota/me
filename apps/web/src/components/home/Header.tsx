@@ -1,3 +1,4 @@
+import iconUrl from '../../assets/icon-64.png';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Nav, LanguageToggle } from '@me/ui';
@@ -30,7 +31,7 @@ export function Header() {
         <Nav
           brand={
             <a href="#init" className="site-header__brand-link">
-              <img className="site-header__logo" src="/icon-64.png" alt="" width={32} height={32} />
+              <img className="site-header__logo" src={iconUrl} alt="" width={32} height={32} />
               <span>{t('header.wordmark')}</span>
             </a>
           }

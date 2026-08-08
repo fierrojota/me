@@ -3,6 +3,7 @@ import { Card, Chip } from '@me/ui';
 import { Section } from './Section';
 import { builderProfile } from '../../data/builder';
 import builderPhoto from '../../assets/the-builder.webp';
+import builderPhotoSmall from '../../assets/the-builder-512.webp';
 
 export function Builder() {
   const { t } = useTranslation('home');
@@ -14,6 +15,11 @@ export function Builder() {
         <img
           className="builder__image"
           src={builderPhoto}
+          // Renders ~493 CSS px on desktop and ~301 on tablet, so a 1x screen
+          // was pulling the full 768px file. The 768 stays for retina, which
+          // needs 986 and is already slightly under it.
+          srcSet={`${builderPhotoSmall} 512w, ${builderPhoto} 768w`}
+          sizes="(max-width: 819px) 50vw, 493px"
           alt={t('builder.imageAlt')}
           loading="lazy"
           decoding="async"

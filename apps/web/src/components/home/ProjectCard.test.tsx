@@ -12,6 +12,7 @@ describe('ProjectCard', () => {
         image={{
           src: '/aura-core.webp',
           srcSmall: '/aura-core-688.webp',
+          srcTiny: '/aura-core-344.webp',
           alt: 'AURA_CORE preview',
           width: 1200,
           height: 675,

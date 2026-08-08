@@ -121,7 +121,13 @@ describe('HomePage', () => {
 
     it('each project card is a link to its own url, opening in a new tab', () => {
       renderHomePage();
-      const link = screen.getByRole('link', { name: en.featuredSystems.aura.title });
+      // Substring match: the card no longer carries an aria-label, so its
+      // accessible name is the whole card content (tag + title + description)
+      // rather than just the title. That is the point of dropping it — the
+      // name now contains every word the user can see (WCAG 2.5.3).
+      const link = screen.getByRole('link', {
+        name: new RegExp(en.featuredSystems.aura.title),
+      });
       expect(link).toHaveAttribute('href', 'https://aura-dev.jotafierro.me/');
       expect(link).toHaveAttribute('target', '_blank');
       expect(link).toHaveAttribute('rel', 'noopener noreferrer');

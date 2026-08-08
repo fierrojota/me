@@ -1,0 +1,26 @@
+# Jota Fierro — Software Engineer
+
+> Personal site and engineering portfolio of Jonathan "Jota" Fierro, a Sr.
+> Backend Developer. The site itself is open source and is built with a
+> spec-driven process: every feature ships with its functional spec, technical
+> spec, QA report and review findings committed alongside the code.
+
+The published process artifacts are the point, not a side effect — they are in
+`.specs/` in the repository below.
+
+## Site
+
+- [Home](https://jotafierro.me/): single-page portfolio (EN/ES), React 19 + Vite.
+
+## Projects
+
+- [AURA](https://aura-dev.jotafierro.me/): a mythic real-life RPG powered by Karma.
+- [j-flow](https://github.com/jotafierro/j-flow): gate-based Spec-Driven Development framework, distributed as a Claude Code plugin.
+- [superclean](https://github.com/jotafierro/superclean): command-line utility for clearing macOS caches, logs and system trash.
+- [me](https://github.com/jotafierro/me): the source of this site, including its specs and review history.
+
+## Contact
+
+- [Email](mailto:connect@jotafierro.me)
+- [GitHub](https://github.com/jotafierro)
+- [LinkedIn](https://linkedin.com/in/jotafierro)
