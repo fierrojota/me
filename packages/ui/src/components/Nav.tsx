@@ -72,7 +72,10 @@ export function Nav({ brand, links, cta, menuLabel = 'Menu', activeTo }: NavProp
             <span
               className="nav__indicator"
               aria-hidden="true"
-              style={{ transform: `translateX(${indicator.x}px)`, width: `${indicator.width}px` }}
+              // scaleX off a 1px base rather than animating `width`: width is
+              // not a compositable property, so transitioning it forced layout
+              // and paint on every frame. Both values now ride one transform.
+              style={{ transform: `translateX(${indicator.x}px) scaleX(${indicator.width})` }}
             />
           </div>
           {cta && <div className="nav__cta">{cta}</div>}

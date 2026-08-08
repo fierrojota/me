@@ -47,14 +47,18 @@
   left: 0;
   bottom: -4px;
   height: 2px;
-  width: 0;
+  /* 1px base scaled by transform: scaleX() — see Nav.tsx. transform-origin
+     must be left so the scale grows rightwards from the link's start. */
+  width: 1px;
+  transform-origin: left center;
+  transform: scaleX(0);
   background: var(--primary-container);
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .nav__indicator {
-    transition: transform 200ms ease, width 200ms ease;
+    transition: transform 200ms ease;
   }
 }
 
