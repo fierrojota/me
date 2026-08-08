@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 // Coverage written at /j-flow-qa (per review-guide.md), not deferred further.
 // Asserts the core ACs of 04-design-polish's `/` landing page against the
-// real i18n copy in apps/web/public/locales/{en,es}/home.json.
+// real i18n copy in apps/web/src/locales/{en,es}/home.json.
 
 test.describe('Home page', () => {
   test('header shows wordmark + nav links, brand link scrolls to Hero (AC-1)', async ({ page }) => {

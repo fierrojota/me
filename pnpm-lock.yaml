@@ -47,9 +47,6 @@ importers:
       i18next-browser-languagedetector:
         specifier: ^8.2.1
         version: 8.2.1
-      i18next-http-backend:
-        specifier: ^4.0.0
-        version: 4.0.0
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -1815,10 +1812,6 @@ packages:
 
   i18next-browser-languagedetector@8.2.1:
     resolution: {integrity: sha512-bZg8+4bdmaOiApD7N7BPT9W8MLZG+nPTOFlLiJiT8uzKXFjhxw4v2ierCXOwB5sFDMtuA5G4kgYZ0AznZxQ/cw==}
-
-  i18next-http-backend@4.0.0:
-    resolution: {integrity: sha512-EgSjO3Q1G6f2Q5oy7u9mmxuesE0oSfzAD97NFBjC8EmkK4guBSYLljM0Fng3DarMWIIkU70jfo4+mUzmyVISTA==}
-    engines: {node: '>=18'}
 
   i18next@26.3.6:
     resolution: {integrity: sha512-Bu5Z2nAXgfVyM8xvW3jk9EKRIuX37PudsrBViThNFx7CR7aaYTpP01cxNB/E4c4UUzTDiAZRstEhsRfPOL/8xA==}
@@ -4067,8 +4060,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.7
 
-  i18next-http-backend@4.0.0: {}
-
   i18next@26.3.6(typescript@6.0.3):
     optionalDependencies:
       typescript: 6.0.3
@@ -4791,7 +4782,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.13.3
-      '@vitest/browser': 3.2.7(playwright@1.62.1)(vite@8.1.5(@types/node@24.13.3)(esbuild@0.25.12)(jiti@1.21.7))(vitest@3.2.7)
+      '@vitest/browser': 3.2.7(playwright@1.62.1)(vite@6.4.3(@types/node@24.13.3)(jiti@1.21.7)(lightningcss@1.33.0))(vitest@3.2.7)
       '@vitest/ui': 3.2.7(vitest@3.2.7)
       jsdom: 25.0.1
     transitivePeerDependencies:

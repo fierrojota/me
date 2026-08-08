@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
-import en from '../../public/locales/en/home.json';
+import en from '../locales/en/home.json';
 import { testI18n } from '../lib/test-i18n';
 import { nextQuarter } from '../lib/quarter';
 import { HomePage } from './HomePage';
