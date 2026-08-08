@@ -20,7 +20,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.26.0"
+    "react-router": "^7.18.2"
   },
   "devDependencies": {
     "@me/config": "workspace:*",

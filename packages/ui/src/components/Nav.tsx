@@ -1,5 +1,5 @@
 import { type ReactNode, useLayoutEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import './nav.css';
 
 export type NavProps = {
