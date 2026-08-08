@@ -30,7 +30,7 @@ export function Connect() {
           escape the 1280px cap. Content unchanged from rev 9. */}
       <footer className="connect__footer">
         <div className="connect__footer-brand">
-          <img src="/icon-192.png" alt="" width={24} height={24} />
+          <img src="/icon-64.png" alt="" width={24} height={24} />
           <span className="text-label-md">
             {t('connect.footerBrand', { year: new Date().getFullYear() })}
           </span>

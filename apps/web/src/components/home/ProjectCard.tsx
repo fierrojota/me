@@ -20,6 +20,14 @@ export function ProjectCard({ tag, tagVariant = 'success', title, description, i
         <img
           className="project-card__image"
           src={image.src}
+          // Two widths rather than one resized file: the rendered size comes
+          // from the treemap weights in data/projects.ts, so hardcoding a
+          // resolution would silently upscale the day those weights change.
+          // srcset lets the browser pick per cell size and per device pixel
+          // ratio instead — the small cells stop downloading 1376px art, and
+          // a retina screen still gets the large one.
+          srcSet={`${image.src.replace(/\.webp$/, '-688.webp')} 688w, ${image.src} 1376w`}
+          sizes="(max-width: 819px) 92vw, (max-width: 1279px) 46vw, 45vw"
           alt={image.alt}
           width={image.width}
           height={image.height}

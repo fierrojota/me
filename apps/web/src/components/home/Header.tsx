@@ -30,7 +30,7 @@ export function Header() {
         <Nav
           brand={
             <a href="#init" className="site-header__brand-link">
-              <img className="site-header__logo" src="/icon-192.png" alt="" width={32} height={32} />
+              <img className="site-header__logo" src="/icon-64.png" alt="" width={32} height={32} />
               <span>{t('header.wordmark')}</span>
             </a>
           }
