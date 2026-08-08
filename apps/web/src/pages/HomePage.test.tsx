@@ -29,7 +29,11 @@ describe('HomePage', () => {
       expect(screen.getByRole('link', { name: en.header.nav.connect })).toHaveAttribute('href', '/#connect');
       expect(screen.queryByText(en.header.connect)).not.toBeInTheDocument();
       expect(screen.queryByRole('button', { name: en.header.connect })).not.toBeInTheDocument();
-      expect(screen.getByRole('button', { name: en.header.nav.menuLabel })).toBeInTheDocument();
+      // Queried by label, not by role: the toggle is a bare <summary>, whose
+      // implicit button role comes from HTML-AAM and is not mapped by jsdom.
+      // Real browsers expose it (plus aria-expanded) — that is why the
+      // explicit role="button" was removed.
+      expect(screen.getByLabelText(en.header.nav.menuLabel)).toBeInTheDocument();
     });
 
     it('renders the brand as a link to #init', () => {

@@ -3,13 +3,17 @@ import './language-toggle.css';
 export type LanguageToggleProps = {
   value: 'en' | 'es';
   onChange: (lang: 'en' | 'es') => void;
+  /** Accessible name for the group. Pass a translated string — the default is
+   *  a last-resort fallback, not copy: an English label under an ES locale is
+   *  exactly the mismatch this control exists to fix. */
+  label?: string;
 };
 
 const LANGUAGES = ['en', 'es'] as const;
 
-export function LanguageToggle({ value, onChange }: LanguageToggleProps) {
+export function LanguageToggle({ value, onChange, label = 'Language' }: LanguageToggleProps) {
   return (
-    <div className="language-toggle" role="group" aria-label="Language">
+    <div className="language-toggle" role="group" aria-label={label}>
       <svg
         className="language-toggle__icon"
         viewBox="0 0 24 24"

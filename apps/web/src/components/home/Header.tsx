@@ -27,7 +27,13 @@ export function Header() {
             </a>
           }
           links={links}
-          cta={<LanguageToggle value={language} onChange={(lang) => i18n.changeLanguage(lang)} />}
+          cta={
+            <LanguageToggle
+              value={language}
+              onChange={(lang) => i18n.changeLanguage(lang)}
+              label={t('header.languageLabel')}
+            />
+          }
           menuLabel={t('header.nav.menuLabel')}
           activeTo={activeId ? `#${activeId}` : undefined}
         />

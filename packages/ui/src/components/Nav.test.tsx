@@ -39,7 +39,11 @@ describe('Nav', () => {
     );
     const details = container.querySelector('details.nav__disclosure')!;
     expect(details).not.toHaveAttribute('open');
-    fireEvent.click(screen.getByRole('button', { name: 'Menu' }));
+    // By label, not by role: <summary> gets its implicit button role from
+    // HTML-AAM, which jsdom does not map. Real browsers expose it along with
+    // aria-expanded — which is precisely what an explicit role="button"
+    // would have suppressed.
+    fireEvent.click(screen.getByLabelText('Menu'));
     expect(details).toHaveAttribute('open');
   });
 });

@@ -44,7 +44,11 @@ export function Nav({ brand, links, cta, menuLabel = 'Menu', activeTo }: NavProp
     <nav className="nav">
       <div className="nav__brand">{brand}</div>
       <details className="nav__disclosure">
-        <summary className="nav__toggle" role="button" aria-label={menuLabel}>
+        {/* No role="button" here: <summary> inside <details> is already a
+            disclosure and exposes aria-expanded natively. Overriding the role
+            throws that state away — a screen reader would announce "Menu,
+            button" with no open/closed state. */}
+        <summary className="nav__toggle" aria-label={menuLabel}>
           <span className="nav__toggle-icon" aria-hidden="true" />
         </summary>
         <div className="nav__collapsible">

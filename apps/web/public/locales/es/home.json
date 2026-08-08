@@ -8,7 +8,8 @@
       "connect": "03_CONECTAR",
       "menuLabel": "MENÚ"
     },
-    "connect": "CONNECT.EXE"
+    "connect": "CONNECT.EXE",
+    "languageLabel": "Idioma"
   },
   "hero": {
     "status": "[ ESTADO: LOGICA_DE_ALTO_RENDIMIENTO ]",

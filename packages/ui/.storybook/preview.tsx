@@ -27,7 +27,9 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
+      // CONSTITUTION P4 calls accessibility inviolable; axe already runs in a
+      // real Chromium here, so leaving it non-blocking made the gate advisory.
+      test: 'error'
     }
   },
   decorators: [
