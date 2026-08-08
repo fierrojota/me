@@ -38,8 +38,8 @@ This is spec-driven development run with [**j-flow**](https://github.com/jotafie
 # 1. Install dependencies
 pnpm install
 
-# 2. Copy env file
-cp .env.example .env
+# 2. Copy env file (each app has its own — web is the only one today)
+cp apps/web/.env.example apps/web/.env
 ```
 
 ## Run

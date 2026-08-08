@@ -1,7 +1,8 @@
 # Constitution — me
 
 > Inviolable principles for this project. Each principle is enforced by `/j-flow-review` as a blocking gate.
-> Keep this list short (3–10 principles). Descriptive context belongs in PRODUCT.md / DESIGN.md.
+> Keep this list short (3–10 principles). Descriptive context belongs in `DESIGN.md` or in the
+> product brief (`PRODUCT.md`, kept private — it holds the unshipped backlog).
 > Add, change, or remove principles only through an explicit team decision — not during a feature build.
 
 ## Principles
@@ -10,7 +11,7 @@
 
 No unbundled/unused dependencies, no unnecessary client-side JS for static content, images optimized/lazy-loaded. Core Web Vitals (LCP, CLS, INP) must not regress across a PR.
 
-**Rationale**: high-performance experiences is a core brand value (PRODUCT.md Unique Angle) — a slow personal site undermines the pitch.
+**Rationale**: high-performance experiences is a core brand value — a slow personal site undermines the pitch.
 
 ### P2 — simplicity over cleverness
 
@@ -20,9 +21,9 @@ Favor the plainest working solution. No premature abstractions, no config for va
 
 ### P3 — scope stays inside declared Layers
 
-Only build for layers listed in PRODUCT.md's `**Layers:**` field (currently `web`). No backend/api or mobile code until that field is updated.
+Only build for the layers this project declares (currently `web`). No backend/api or mobile code until that changes.
 
-**Rationale**: v1 is web-only by design (see PRODUCT.md Out of Scope) — building unused layers is wasted effort and surface area to maintain.
+**Rationale**: v1 is web-only by design — building unused layers is wasted effort and surface area to maintain.
 
 ### P4 — accessible, semantic markup
 

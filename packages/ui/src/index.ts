@@ -2,7 +2,6 @@ import './tokens.css';
 import './typography.css';
 import './layout.css';
 
-export * from './components/Welcome';
 export * from './components/Button';
 export * from './components/Chip';
 export * from './components/Card';

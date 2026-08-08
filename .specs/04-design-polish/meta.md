@@ -1,7 +1,7 @@
 feature: 04-design-polish
 branch: feature/04-design-polish
 created_at: 2026-07-24
-stack: MongoDB + NestJS + React + Flutter
+stack: React (web-only)
 
 functional_status: approved
 functional_approved_at: 2026-07-25

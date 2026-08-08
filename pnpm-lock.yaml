@@ -108,15 +108,6 @@ importers:
 
   packages/config: {}
 
-  packages/domain:
-    devDependencies:
-      '@me/config':
-        specifier: workspace:*
-        version: link:../config
-      typescript:
-        specifier: ^5.4.0
-        version: 5.9.3
-
   packages/ui:
     dependencies:
       '@fontsource-variable/geist':

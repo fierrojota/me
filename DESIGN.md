@@ -1,7 +1,7 @@
 # me Design System — Kinetic Logic | Lime
 
 > Source of truth for design tokens. `packages/ui` mirrors these for React.
-> Reference mockup: `docs/mockups/web/me.png`
+> Reference mockups live in `docs/mockups/` (kept private — unshipped design work).
 
 ---
 

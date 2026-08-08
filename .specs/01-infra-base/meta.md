@@ -1,7 +1,7 @@
 feature: 01-infra-base
 branch: feature/01-infra-base
 created_at: 2026-07-21T00:00:00Z
-stack: React (web-only — see PRODUCT.md Layers)
+stack: React (web-only)
 
 functional_status: approved
 functional_approved_at: 2026-07-22

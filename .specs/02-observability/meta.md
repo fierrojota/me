@@ -1,7 +1,7 @@
 feature: 02-observability
 branch: feature/02-observability
 created_at: 2026-07-22
-stack: MongoDB + NestJS + React + Flutter
+stack: React (web-only)
 
 functional_status: approved
 functional_approved_at: 2026-07-22

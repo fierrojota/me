@@ -1,7 +1,7 @@
 feature: 03-design-system
 branch: feature/03-design-system
 created_at: 2026-07-24
-stack: MongoDB + NestJS + React + Flutter
+stack: React (web-only)
 
 functional_status: approved
 functional_approved_at: 2026-07-24
