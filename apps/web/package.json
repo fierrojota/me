@@ -15,6 +15,7 @@
   "dependencies": {
     "@me/ui": "workspace:*",
     "@sentry/react": "^10.67.0",
+    "@vercel/analytics": "^2.0.1",
     "i18next": "^26.3.6",
     "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.2.7",
