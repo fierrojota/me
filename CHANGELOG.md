@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- [07-brand-alignment] YouTube channel link in the Connect footer
+
+### Changed
+- [07-brand-alignment] Site is Spanish-only: language forced via i18next `lng`, header language toggle hidden (EN locale and the `LanguageToggle` primitive stay in the repo, unused)
+- [07-brand-alignment] Hero, Builder and Connect copy aligned with the brand positioning; Builder gains a pillars line; Connect headline is now `HABLEMOS` and its subtitle no longer advertises engineering partnerships
+- [07-brand-alignment] `ErrorBoundary` fallback copy read from the i18n layer; `index.html`, `manifest.json` and `llms.txt` rewritten in Spanish
+
+### Removed
+- [07-brand-alignment] Unused `lib/quarter.ts` (the availability-quarter text it fed is gone)
+
 ## [0.4.0] - 2026-07-29
 
 ### Added

@@ -2,7 +2,7 @@
 
 > Source of truth for the current behavior of this domain.
 > Auto-updated by `/j-flow-finish`. Do not edit manually outside of a finish run.
-> Last updated: 2026-07-29 by feature `04-design-polish`
+> Last updated: 2026-10-09 by feature `07-brand-alignment`
 
 ## Behaviors
 
@@ -24,7 +24,7 @@
 - `00_INIT` scrolls to the Hero section, `01_ABOUT` scrolls to the Builder section, `02_SYSTEMS` scrolls to the Featured Systems section, `03_CONNECT` scrolls to the Connect section
 - Nav-link scrolling animates smoothly, and the scrolled-to section's content is never obscured under the fixed header
 - The header's content spans the full viewport width (not clamped to the page's `container-max` width) with page-margin side padding, matching the mockup's edge-to-edge header
-- Nav links render horizontally centered on that full header width (between the brand mark and the language toggle), independent of viewport size
+- Nav links render horizontally centered on that full header width (between the brand mark and the right edge; the language toggle was removed in 07-brand-alignment), independent of viewport size
 - Below the tablet breakpoint, the nav links collapse behind a hamburger/menu toggle — same nav content (`01_ABOUT`/`02_SYSTEMS`/`03_CONNECT`, language toggle), just collapsed; toggle is keyboard-operable, no custom JS focus-trap (native disclosure pattern)
 - In the collapsed mobile menu, the active-section link still shows the lime color + underline state (no slide animation there)
 
@@ -33,7 +33,7 @@
 **Given** a visitor loads `/`
 **When** the hero section renders
 **Then:**
-- Status chip renders: `[ STATUS: HIGH_PERFORMANCE_LOGIC ]`
+- Status chip renders (Spanish copy since 07-brand-alignment): `[ STATUS: HIGH_PERFORMANCE_LOGIC ]` → `[ ESTADO: LOGICA_DE_ALTO_RENDIMIENTO ]`
 - Headline renders with the "HIGH PERFORMANCE." phrase in lime with underline, rest in default text color
 - Subcopy paragraph renders below headline
 - Primary CTA (`INITIALIZE_VIEW_SYSTEMS`) and secondary CTA (`WHO_IS_THE_BUILDER?`) render per Button primitive variants
@@ -70,11 +70,11 @@
 **When** the section renders
 **Then:**
 - The section renders as a bordered/framed box (not full-bleed lime background) — dark background, thin border, centered content
-- Headline (`BUILD_REMARKABLE_SYSTEMS_NOW`) renders, centered
+- Headline renders, centered (`HABLEMOS` since 07-brand-alignment; was `BUILD_REMARKABLE_SYSTEMS_NOW`)
 - A subtitle renders between the headline and the email CTA
 - Email CTA button (`CONNECT@JOTAFIERRO.ME`) renders, centered
 - Status microcopy (`AWAITING_INCOMING_CONNECTION...`) renders
-- Footer content (brand + year, `GITHUB`/`LINKEDIN`/`EMAIL` links) renders within this same section, below the bordered CTA card — spans the FULL viewport width (edge-to-edge, matching the header's full-bleed treatment) and is NOT fixed/sticky
+- Footer content (brand + year, `GITHUB`/`LINKEDIN`/`YOUTUBE`/`EMAIL` links; YOUTUBE added in 07-brand-alignment) renders within this same section, below the bordered CTA card — spans the FULL viewport width (edge-to-edge, matching the header's full-bleed treatment) and is NOT fixed/sticky
 
 ### AC-8 — Responsive fidelity
 
@@ -103,7 +103,7 @@
 - `favicon.ico` and `apple-touch-icon.png` are wired via `<link>` tags
 - `icon-192.png`, `icon-512.png`, and their maskable variants are wired into the web app manifest
 
-### AC-11 — Language selector
+### AC-11 — Language selector _(superseded by 07-brand-alignment AC-1/AC-2: the selector is hidden and the site is Spanish-only)_
 
 **Given** a visitor loads `/`
 **When** the header renders
@@ -132,5 +132,78 @@
 - On desktop, scrolling snaps to these 4 sections' boundaries (CSS scroll-snap)
 - Below desktop (tablet/mobile), these 4 sections use their natural content height instead — no forced 100vh, no scroll-snap
 - Connect is the last section on the page — no separate, shorter section after it
+
+### 07-brand-alignment — Brand alignment: Spanish-only site, positioning copy, YouTube link (2026-10-09)
+
+### AC-1 — Spanish is the only language
+
+**Given** any visitor, whatever their browser language or a previously stored language
+**When** `/` loads
+**Then:**
+- All copy renders in Spanish
+- `<html lang>` is `es`
+- A stored `en` value in localStorage does not switch the page to English
+- The English locale files and the bilingual i18n infrastructure remain in the repo, unused by the UI
+
+### AC-2 — Language toggle hidden
+
+**Given** a visitor on any viewport
+**When** the header renders (desktop bar or collapsed mobile menu)
+**Then:**
+- No language selector is rendered or focusable
+- The `LanguageToggle` primitive and its Storybook story remain in `packages/ui`
+- Nav links keep their layout (centered, active underline) without the toggle's slot looking empty
+
+### AC-3 — Hero states the positioning
+
+**Given** a visitor loads `/`
+**When** the Hero renders
+**Then:**
+- Headline and subcopy express: "El ingeniero que le pone proceso a todo — al código y a la vida", keeping the existing prefix/highlight/suffix headline structure (highlight in lime with underline)
+- The STATUS chip and both CTAs keep their current terminal-style wording and behavior
+- No claim of availability for hire or services
+
+### AC-4 — Builder bio reflects the published bio
+
+**Given** a visitor scrolls to the Builder section
+**When** the section renders
+**Then:**
+- The bio conveys: senior backend, husband, two daughters, basketball, all built between 5:30 and 9:30 AM
+- The 3 pillars (Ingeniería y carrera · Vida en construcción · Biblioteca) are visible as copy inside the Builder section
+- No daughters' names, ages or photos; no absolute money figures; no academic-degree claim
+
+### AC-5 — Connect carries no service offer
+
+**Given** a visitor scrolls to Connect
+**When** the section renders
+**Then:**
+- The headline reads `HABLEMOS` (replacing the pitch-style `CONSTRUYE_SISTEMAS_NOTABLES_AHORA`)
+- The subtitle no longer says the author accepts engineering partnerships/collaborations, and no quarter/availability text remains
+- The email CTA (mailto) stays as a plain contact point
+- The `nextQuarter()` usage is removed from the component if no longer needed
+
+### AC-6 — YouTube channel link
+
+**Given** a visitor on `/`
+**When** the Connect footer renders
+**Then:**
+- A link to https://www.youtube.com/@fierrojota renders in the footer, opens in a new tab with `rel="noopener noreferrer"`, with an accessible name that includes its visible text (label-in-name)
+- Footer lists GITHUB / LINKEDIN / YOUTUBE / EMAIL
+- No separate button is added next to the email CTA
+
+### AC-7 — Metadata and machine-readable files match
+
+**Given** a crawler or LLM reads the site
+**When** it fetches `index.html`, `llms.txt`
+**Then:**
+- `<html lang="es">`, title/description and `llms.txt` use the new positioning in Spanish and list the YouTube channel
+- Nothing mentions services, newsletter or support links
+
+### AC-8 — Quality gates unchanged
+
+**Given** the change is built
+**When** lint, type-check, unit tests, Playwright e2e and a11y checks run
+**Then:**
+- All pass; tests that assumed EN/ES switching are updated or removed accordingly; no new hardcoded strings outside i18n
 
 <!-- next feature entries are appended above this line -->
