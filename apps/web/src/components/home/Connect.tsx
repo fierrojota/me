@@ -1,10 +1,8 @@
 import iconUrl from '../../assets/icon-64.png';
 import { useTranslation } from 'react-i18next';
-import { nextQuarter } from '../../lib/quarter';
 
 export function Connect() {
   const { t } = useTranslation('home');
-  const { quarter, year } = nextQuarter();
 
   return (
     // Hand-rolled — NOT <Section>. Replicates Section's own className-building
@@ -18,7 +16,7 @@ export function Connect() {
       <div className="container-max">
         <div className="connect__card">
           <h2 className="text-headline-lg">{t('connect.headline')}</h2>
-          <p className="connect__subtitle text-body-md">{t('connect.subtitle', { quarter, year })}</p>
+          <p className="connect__subtitle text-body-md">{t('connect.subtitle')}</p>
           <div className="connect__actions">
             <a href="mailto:connect@jotafierro.me" className="btn btn--primary">
               {t('connect.email')}
@@ -42,6 +40,11 @@ export function Connect() {
           </li>
           <li>
             <a href="https://linkedin.com/in/jotafierro">{t('connect.footerLinkedin')}</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@fierrojota" target="_blank" rel="noopener noreferrer">
+              {t('connect.footerYoutube')}
+            </a>
           </li>
           <li>
             <a href="mailto:connect@jotafierro.me">{t('connect.footerEmail')}</a>

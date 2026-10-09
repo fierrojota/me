@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import i18n from './i18n';
 
 interface Props {
   children: ReactNode;
@@ -35,8 +36,8 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <main className="app-shell">
           <div>
-            <h1>Something went wrong</h1>
-            <p>Please try navigating elsewhere.</p>
+            <h1>{i18n.t('error.title')}</h1>
+            <p>{i18n.t('error.body')}</p>
           </div>
         </main>
       );

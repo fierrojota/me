@@ -4,10 +4,10 @@ import { initReactI18next } from 'react-i18next';
 import enHome from '../locales/en/home.json';
 import esHome from '../locales/es/home.json';
 
-// Keep <html lang> in sync with the active language. index.html ships lang="en"
-// as the initial value, but without this the document keeps announcing itself as
-// English after switching to ES — a screen reader would read Spanish copy with
-// English pronunciation (WCAG 3.1.1 / 3.1.2).
+// Keep <html lang> in sync with the active language (WCAG 3.1.1 / 3.1.2).
+// index.html ships lang="es": the site is Spanish-only (07-brand-alignment AC-1).
+// To bring English back: remove `lng`, restore `caches: []`, put
+// the language toggle `cta` back in Header, and set index.html lang accordingly.
 i18n.on('languageChanged', () => {
   const lng = i18n.resolvedLanguage;
   if (lng) document.documentElement.lang = lng;
@@ -31,6 +31,7 @@ i18n
       en: { home: enHome },
       es: { home: esHome },
     },
+    lng: 'es',
     fallbackLng: 'en',
     supportedLngs: ['en', 'es'],
     load: 'languageOnly',

@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import './test-i18n';
+import es from '../locales/es/home.json';
 import { ErrorBoundary } from './error-boundary';
 
 function Boom(): never {
@@ -14,7 +16,7 @@ describe('ErrorBoundary', () => {
       </ErrorBoundary>,
     );
 
-    expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+    expect(screen.getByText(es.error.title)).toBeInTheDocument();
   });
 
   it('renders children when nothing throws', () => {

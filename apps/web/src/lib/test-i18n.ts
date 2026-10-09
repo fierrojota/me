@@ -5,7 +5,7 @@ import esHome from '../locales/es/home.json';
 
 export const testI18n = i18n.createInstance();
 testI18n.use(initReactI18next).init({
-  lng: 'en',
+  lng: 'es',
   fallbackLng: 'en',
   defaultNS: 'home',
   resources: {

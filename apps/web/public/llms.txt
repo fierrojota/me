@@ -1,25 +1,35 @@
-# Jota Fierro — Software Engineer
+# Jota Fierro — El ingeniero que le pone proceso a todo
 
-> Personal site and engineering portfolio of Jonathan "Jota" Fierro, a Sr.
-> Backend Developer. The site itself is open source and is built with a
-> spec-driven process: every feature ships with its functional spec, technical
-> spec, QA report and review findings committed alongside the code.
+> Sitio personal de Jonathan "Jota" Fierro, ingeniero backend senior. Le pone
+> proceso a todo — al código y a la vida. El sitio es open source y se
+> construye con un proceso spec-driven: cada feature se publica con su spec
+> funcional, spec técnica, reporte de QA y hallazgos de revisión junto al código.
 
-The published process artifacts are the point, not a side effect — they are in
-`.specs/` in the repository below.
+Los artefactos del proceso son el punto, no un efecto secundario — están en
+`.specs/` en el repositorio de abajo.
 
-## Site
+## Pilares
 
-- [Home](https://jotafierro.me/): single-page portfolio (EN/ES), React 19 + Vite.
+- Ingeniería y carrera
+- Vida en construcción
+- Biblioteca
 
-## Projects
+## Sitio
 
-- [AURA](https://aura-dev.jotafierro.me/): a mythic real-life RPG powered by Karma.
-- [j-flow](https://github.com/jotafierro/j-flow): gate-based Spec-Driven Development framework, distributed as a Claude Code plugin.
-- [superclean](https://github.com/jotafierro/superclean): command-line utility for clearing macOS caches, logs and system trash.
-- [me](https://github.com/jotafierro/me): the source of this site, including its specs and review history.
+- [Inicio](https://jotafierro.me/): portafolio de una sola página (español), React 19 + Vite.
 
-## Contact
+## Proyectos
+
+- [AURA](https://aura-dev.jotafierro.me/): un RPG mítico de la vida real impulsado por Karma.
+- [j-flow](https://github.com/jotafierro/j-flow): framework de Spec-Driven Development con gates, distribuido como plugin de Claude Code.
+- [superclean](https://github.com/jotafierro/superclean): utilidad de línea de comandos para limpiar cachés, logs y basura del sistema en macOS.
+- [me](https://github.com/jotafierro/me): el código de este sitio, con sus specs e historial de revisiones.
+
+## Canales
+
+- [YouTube](https://www.youtube.com/@fierrojota)
+
+## Contacto
 
 - [Email](mailto:connect@jotafierro.me)
 - [GitHub](https://github.com/jotafierro)

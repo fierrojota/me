@@ -13,10 +13,10 @@
   },
   "hero": {
     "status": "[ ESTADO: LOGICA_DE_ALTO_RENDIMIENTO ]",
-    "headlinePrefix": "INGENIERÍA PARA",
-    "headlineHighlight": "ALTO RENDIMIENTO.",
-    "headlineSuffix": "CONSTRUIDO CON RIGOR.",
-    "subcopy": "Ingeniería full-stack en React, NestJS, MongoDB y Flutter — construida con un proceso riguroso y spec-driven.",
+    "headlinePrefix": "EL INGENIERO QUE LE PONE",
+    "headlineHighlight": "PROCESO A TODO",
+    "headlineSuffix": "— AL CÓDIGO Y A LA VIDA.",
+    "subcopy": "Ingeniero backend senior. Construyo software con un proceso spec-driven y aplico ese mismo método a la vida: carrera, familia y lo que vale la pena compartir.",
     "ctaPrimary": "INICIALIZAR_VER_SISTEMAS",
     "ctaSecondary": "¿QUIÉN_ES_EL_CONSTRUCTOR?"
   },
@@ -27,8 +27,9 @@
     "factRolePrefix": "> ROL_ACTUAL: Sr. Backend Developer /",
     "factSpecialization": "> STACK: React · NestJS · MongoDB · Flutter",
     "factPhilosophy": "> FILOSOFÍA: Simplicidad Sobre Ingenio",
-    "factHuman": "> OFFLINE: Esposo y padre de dos pequeñas que me roban el ❤️ — mi fuerza día a día 🏅",
-    "quote": "\"Equilibro el rigor técnico con un enfoque ingenioso y centrado en la innovación para resolver problemas. El código es una fuerza dinámica.\"",
+    "factHuman": "> OFFLINE: Esposo · Papá de dos hijas · Entreno básquetbol 🏀",
+    "factPillars": "> PILARES: Ingeniería y carrera · Vida en construcción · Biblioteca",
+    "quote": "\"Todo lo que ves aquí lo construyo entre las 5:30 y las 9:30 AM, antes de que empiece el día. Proceso en el código, proceso en la vida.\"",
     "stat1Label": "01_PRÁCTICA",
     "stat1Title": "ARQUITECTURA_LIMPIA",
     "stat1Body": "Prácticas rigurosas de TDD e implementación de principios SOLID.",
@@ -66,13 +67,18 @@
     }
   },
   "connect": {
-    "headline": "CONSTRUYE_SISTEMAS_NOTABLES_AHORA",
-    "subtitle": "Actualmente acepto un número selecto de colaboraciones de ingeniería para el Q{{quarter}} de {{year}}. Construyamos algo que perdure.",
+    "headline": "HABLEMOS",
+    "subtitle": "¿Una pregunta, una idea o un comentario sobre algo que publiqué? Escríbeme.",
     "email": "CONNECT@JOTAFIERRO.ME",
     "status": "ESPERANDO_CONEXIÓN_ENTRANTE...",
     "footerBrand": "jotafierro.me // {{year}}",
     "footerGithub": "GITHUB",
     "footerLinkedin": "LINKEDIN",
+    "footerYoutube": "YOUTUBE",
     "footerEmail": "EMAIL"
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "body": "Intenta navegar a otra parte."
   }
 }

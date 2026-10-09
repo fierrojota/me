@@ -11,6 +11,6 @@ describe('App', () => {
         <App />
       </I18nextProvider>,
     );
-    expect(screen.getByRole('heading', { name: /engineering for/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /el ingeniero que le pone/i })).toBeInTheDocument();
   });
 });

@@ -13,10 +13,10 @@
   },
   "hero": {
     "status": "[ STATUS: HIGH_PERFORMANCE_LOGIC ]",
-    "headlinePrefix": "ENGINEERING FOR",
-    "headlineHighlight": "HIGH PERFORMANCE.",
-    "headlineSuffix": "BUILT WITH RIGOR.",
-    "subcopy": "Full-stack engineering across React, NestJS, MongoDB and Flutter — built with a rigorous, spec-driven process.",
+    "headlinePrefix": "THE ENGINEER WHO PUTS",
+    "headlineHighlight": "PROCESS INTO EVERYTHING",
+    "headlineSuffix": "— INTO CODE AND INTO LIFE.",
+    "subcopy": "Senior backend engineer. I build software with a spec-driven process and apply the same method to life: career, family and what's worth sharing.",
     "ctaPrimary": "INITIALIZE_VIEW_SYSTEMS",
     "ctaSecondary": "WHO_IS_THE_BUILDER?"
   },
@@ -27,8 +27,9 @@
     "factRolePrefix": "> CURRENT_ROLE: Sr. Backend Developer /",
     "factSpecialization": "> STACK: React · NestJS · MongoDB · Flutter",
     "factPhilosophy": "> PHILOSOPHY: Simplicity Over Cleverness",
-    "factHuman": "> OFFLINE: Husband & father of two little ones who steal my ❤️ — my daily driving force 🏅",
-    "quote": "\"I balance technical rigor with a witty, innovation-first approach to problem-solving. Code is a dynamic force.\"",
+    "factHuman": "> OFFLINE: Husband · Father of two daughters · I train basketball 🏀",
+    "factPillars": "> PILLARS: Engineering & career · Life under construction · Library",
+    "quote": "\"Everything you see here I build between 5:30 and 9:30 AM, before the day starts. Process in code, process in life.\"",
     "stat1Label": "01_PRACTICE",
     "stat1Title": "CLEAN_ARCH",
     "stat1Body": "Rigorous TDD and SOLID implementation patterns.",
@@ -66,13 +67,18 @@
     }
   },
   "connect": {
-    "headline": "BUILD_REMARKABLE_SYSTEMS_NOW",
-    "subtitle": "Currently accepting select engineering partnerships for Q{{quarter}} {{year}}. Let's build something that lasts.",
+    "headline": "LETS_TALK",
+    "subtitle": "A question, an idea or a thought on something I published? Write to me.",
     "email": "CONNECT@JOTAFIERRO.ME",
     "status": "AWAITING_INCOMING_CONNECTION...",
     "footerBrand": "jotafierro.me // {{year}}",
     "footerGithub": "GITHUB",
     "footerLinkedin": "LINKEDIN",
+    "footerYoutube": "YOUTUBE",
     "footerEmail": "EMAIL"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "body": "Please try navigating elsewhere."
   }
 }

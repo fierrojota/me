@@ -1,14 +1,13 @@
 import iconUrl from '../../assets/icon-64.png';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Nav, LanguageToggle } from '@me/ui';
+import { Nav } from '@me/ui';
 import { useActiveSection } from '../../hooks/useActiveSection';
 
 const SECTION_IDS = ['init', 'the-builder', 'featured-systems', 'connect'] as const;
 
 export function Header() {
-  const { t, i18n } = useTranslation('home');
-  const language = (i18n.resolvedLanguage ?? i18n.language) as 'en' | 'es';
+  const { t } = useTranslation('home');
   const activeId = useActiveSection(SECTION_IDS);
 
   // Memoized because Nav's measuring layout effect depends on `links`. A fresh
@@ -36,13 +35,6 @@ export function Header() {
             </a>
           }
           links={links}
-          cta={
-            <LanguageToggle
-              value={language}
-              onChange={(lang) => i18n.changeLanguage(lang)}
-              label={t('header.languageLabel')}
-            />
-          }
           menuLabel={t('header.nav.menuLabel')}
           activeTo={activeId ? `#${activeId}` : undefined}
         />

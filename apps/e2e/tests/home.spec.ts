@@ -9,7 +9,7 @@ test.describe('Home page', () => {
     await page.goto('/');
 
     await expect(page.locator('.site-header__brand-link')).toContainText('jotafierro.me');
-    await expect(page.locator('.nav__link')).toHaveText(['00_INIT', '01_ABOUT', '02_SYSTEMS', '03_CONNECT']);
+    await expect(page.locator('.nav__link')).toHaveText(['00_INICIALIZAR', '01_ACERCA', '02_SISTEMAS', '03_CONECTAR']);
 
     // Scroll away from Hero first so the brand click has somewhere to go.
     await page.locator('#connect').scrollIntoViewIfNeeded();
@@ -21,9 +21,9 @@ test.describe('Home page', () => {
   test('hero headline and both CTAs are visible (AC-2)', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.locator('.hero__highlight')).toHaveText('HIGH PERFORMANCE.');
-    await expect(page.getByRole('link', { name: 'INITIALIZE_VIEW_SYSTEMS' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'WHO_IS_THE_BUILDER?' })).toBeVisible();
+    await expect(page.locator('.hero__highlight')).toHaveText('PROCESO A TODO');
+    await expect(page.getByRole('link', { name: 'INICIALIZAR_VER_SISTEMAS' })).toBeVisible();
+    await expect(page.getByRole('link', { name: '¿QUIÉN_ES_EL_CONSTRUCTOR?' })).toBeVisible();
   });
 
   test('builder section shows image + both stat cards (AC-3)', async ({ page }) => {
@@ -31,8 +31,8 @@ test.describe('Home page', () => {
     await page.locator('#the-builder').scrollIntoViewIfNeeded();
 
     await expect(page.locator('.builder__image')).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'CLEAN_ARCH' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'INNOVATION' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'ARQUITECTURA_LIMPIA' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'INNOVACIÓN' })).toBeVisible();
   });
 
   test('all 4 project cards render as links with titles (AC-4)', async ({ page }) => {
@@ -61,7 +61,7 @@ test.describe('Home page', () => {
     await page.locator('#connect').scrollIntoViewIfNeeded();
 
     await expect(page.locator('.connect__card')).toBeVisible();
-    await expect(page.getByText('BUILD_REMARKABLE_SYSTEMS_NOW')).toBeVisible();
+    await expect(page.getByText('HABLEMOS')).toBeVisible();
     await expect(page.getByRole('link', { name: 'CONNECT@JOTAFIERRO.ME' })).toHaveAttribute(
       'href',
       'mailto:connect@jotafierro.me',
@@ -73,6 +73,10 @@ test.describe('Home page', () => {
     await expect(footer).not.toContainText('BUILT WITH KINETIC_LOGIC');
     await expect(footer.getByRole('link', { name: 'GITHUB' })).toBeVisible();
     await expect(footer.getByRole('link', { name: 'LINKEDIN' })).toBeVisible();
+    const youtube = footer.getByRole('link', { name: 'YOUTUBE' });
+    await expect(youtube).toHaveAttribute('href', 'https://www.youtube.com/@fierrojota');
+    await expect(youtube).toHaveAttribute('target', '_blank');
+    await expect(youtube).toHaveAttribute('rel', 'noopener noreferrer');
     await expect(footer.getByRole('link', { name: 'EMAIL' })).toBeVisible();
 
     // No separate full-bleed CTA band, and only this one <footer> on the page.
@@ -80,11 +84,11 @@ test.describe('Home page', () => {
     await expect(page.locator('footer')).toHaveCount(1);
   });
 
-  test('clicking 03_CONNECT scrolls the Connect section into view uncovered by the sticky header (AC-1)', async ({
+  test('clicking 03_CONECTAR scrolls the Connect section into view uncovered by the sticky header (AC-1)', async ({
     page,
   }) => {
     await page.goto('/');
-    await page.getByRole('link', { name: '03_CONNECT' }).click();
+    await page.getByRole('link', { name: '03_CONECTAR' }).click();
     await page.waitForTimeout(700);
 
     const headerBottom = await page.locator('.site-header').evaluate((el) => el.getBoundingClientRect().bottom);
@@ -92,22 +96,27 @@ test.describe('Home page', () => {
     expect(connectTop).toBeGreaterThanOrEqual(headerBottom - 1);
   });
 
-  test('selecting ES updates visible copy without a page reload (AC-11)', async ({ page }) => {
+  test('Spanish is forced for an English visitor with stored en (AC-1, AC-2)', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'en-US' });
+    const page = await context.newPage();
+    await page.addInitScript(() => localStorage.setItem('i18nextLng', 'en'));
     await page.goto('/');
-    await page.evaluate(() => {
-      (window as unknown as { __noReloadMarker?: boolean }).__noReloadMarker = true;
-    });
 
-    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-
-    await page.getByRole('button', { name: 'ES' }).click();
-    await expect(page.locator('.hero__highlight')).toHaveText('ALTO RENDIMIENTO.');
-    // The document must re-announce its language, not just swap the copy.
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+    await expect(page.locator('.hero__highlight')).toHaveText('PROCESO A TODO');
+    await expect(page.locator('.language-toggle')).toHaveCount(0);
+    await context.close();
+  });
 
-    const markerSurvived = await page.evaluate(
-      () => (window as unknown as { __noReloadMarker?: boolean }).__noReloadMarker,
-    );
-    expect(markerSurvived).toBe(true);
+  test('mobile menu has no language toggle (AC-2)', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    await page.locator('summary.nav__toggle').click();
+
+    const links = page.locator('.nav__link');
+    await expect(links).toHaveCount(4);
+    for (let i = 0; i < 4; i++) await expect(links.nth(i)).toBeVisible();
+    await expect(page.locator('.nav__link[aria-current="page"]')).toHaveCount(1);
+    await expect(page.locator('.language-toggle')).toHaveCount(0);
   });
 });

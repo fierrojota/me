@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { createInstance } from 'i18next';
 import en from '../locales/en/home.json';
 import es from '../locales/es/home.json';
@@ -33,5 +33,17 @@ describe('fallback behavior', () => {
 
     expect(instance.t('home:greeting')).toBe('Hello');
     expect(instance.t('home:greeting')).not.toBe('greeting');
+  });
+});
+
+describe('forced Spanish', () => {
+  it('ignores a stored en and an English navigator, and syncs <html lang>', async () => {
+    localStorage.setItem('i18nextLng', 'en');
+    vi.resetModules();
+    const { default: i18n } = await import('./i18n');
+
+    expect(i18n.language).toBe('es');
+    await vi.waitFor(() => expect(document.documentElement.lang).toBe('es'));
+    localStorage.removeItem('i18nextLng');
   });
 });
