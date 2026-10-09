@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import { createInstance } from 'i18next';
 import en from '../locales/en/home.json';
 import es from '../locales/es/home.json';
@@ -37,6 +37,8 @@ describe('fallback behavior', () => {
 });
 
 describe('forced Spanish', () => {
+  afterEach(() => localStorage.removeItem('i18nextLng'));
+
   it('ignores a stored en and an English navigator, and syncs <html lang>', async () => {
     localStorage.setItem('i18nextLng', 'en');
     vi.resetModules();
@@ -44,6 +46,7 @@ describe('forced Spanish', () => {
 
     expect(i18n.language).toBe('es');
     await vi.waitFor(() => expect(document.documentElement.lang).toBe('es'));
-    localStorage.removeItem('i18nextLng');
+    // caches: [] — the forced language must not overwrite a visitor's stored choice
+    expect(localStorage.getItem('i18nextLng')).toBe('en');
   });
 });

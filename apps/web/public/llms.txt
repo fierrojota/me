@@ -5,8 +5,8 @@
 > construye con un proceso spec-driven: cada feature se publica con su spec
 > funcional, spec técnica, reporte de QA y hallazgos de revisión junto al código.
 
-Los artefactos del proceso son el punto, no un efecto secundario — están en
-`.specs/` en el repositorio de abajo.
+Los artefactos del proceso son lo esencial, no un efecto secundario — están en
+`.specs/` del repositorio enlazado abajo.
 
 ## Pilares
 

@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import './test-i18n';
 import es from '../locales/es/home.json';
 import { ErrorBoundary } from './error-boundary';
 

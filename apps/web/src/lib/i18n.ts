@@ -6,8 +6,8 @@ import esHome from '../locales/es/home.json';
 
 // Keep <html lang> in sync with the active language (WCAG 3.1.1 / 3.1.2).
 // index.html ships lang="es": the site is Spanish-only (07-brand-alignment AC-1).
-// To bring English back: remove `lng`, restore `caches: []`, put
-// the language toggle `cta` back in Header, and set index.html lang accordingly.
+// To bring English back: remove `lng`, restore
+// `caches: ['localStorage']`, put the language toggle `cta` back in Header, and set index.html lang accordingly.
 i18n.on('languageChanged', () => {
   const lng = i18n.resolvedLanguage;
   if (lng) document.documentElement.lang = lng;
@@ -39,7 +39,7 @@ i18n
     ns: ['home'],
     detection: {
       order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
+      caches: [],
     },
   });
 
