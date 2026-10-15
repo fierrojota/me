@@ -18,6 +18,6 @@
 
 ### 05-deploy — Production hosting (2026-07-29)
 
-- Deploy done directly via Vercel dashboard (repo import), no spec flow run — no `.specs/05-deploy/` folder. No `vercel.json`, no deploy step in `.github/workflows/ci.yml` — Vercel builds/deploys from its own dashboard config on push, independent of this repo's CI. Live at `https://jotafierro.me/`.
+- Deploy done directly via Vercel dashboard (repo import), no spec flow run — no `.specs/05-deploy/` folder. No `vercel.json`, no deploy step in `.github/workflows/ci.yml` — Vercel builds/deploys from its own dashboard config on push, independent of this repo's CI. Live at `https://fierrojota.com/`.
 
 <!-- next feature entries are appended above this line -->

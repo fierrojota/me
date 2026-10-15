@@ -1,6 +1,6 @@
 {
   "header": {
-    "wordmark": "jotafierro.me",
+    "wordmark": "fierrojota.com",
     "nav": {
       "init": "00_INICIALIZAR",
       "about": "01_ACERCA",
@@ -41,11 +41,11 @@
     "heading": "SISTEMAS_DESTACADOS",
     "subcopy": "REGISTRO_DE_INGENIERÍA: Productos, herramientas y flujos que diseño y construyo — de principio a fin.",
     "githubLink": "ABRIR_GITHUB [TODOS]",
-    "aura": {
-      "tag": "[ PRODUCTO ]",
-      "title": "AURA",
-      "description": "Master Your Soul — un RPG mítico de la vida real impulsado por Karma y logros del Panteón griego. React · NestJS · MongoDB · Flutter. En desarrollo.",
-      "imageAlt": "Key-art de AURA — 'Master Your Soul'."
+    "now": {
+      "tag": "[ SKILL ]",
+      "title": "NOW",
+      "description": "Nació del video 1 del canal: le pregunté a mi terminal «¿qué hago ahora?». Skill de Claude Code que cruza la hora, tu grilla semanal y tu sprint, y responde en 3 líneas. Solo lectura. Template en GitHub: fierrojota/now-skill-demo.",
+      "imageAlt": "Miniatura del video 1 — «¿Qué hago ahora?»: le pregunté a mi terminal."
     },
     "jFlow": {
       "tag": "[ FRAMEWORK ]",
@@ -62,16 +62,16 @@
     "me": {
       "tag": "[ WEB ]",
       "title": "ME",
-      "description": "Este sitio — jotafierro.me, construido con el mismo proceso spec-driven. React · Vite. Open source.",
-      "imageAlt": "Key-art de jotafierro.me — sitio personal."
+      "description": "Este sitio — fierrojota.com, construido con el mismo proceso spec-driven. React · Vite. Open source.",
+      "imageAlt": "Key-art de fierrojota.com — sitio personal."
     }
   },
   "connect": {
     "headline": "HABLEMOS",
     "subtitle": "¿Una pregunta, una idea o un comentario sobre algo que publiqué? Escríbeme.",
-    "email": "CONNECT@JOTAFIERRO.ME",
+    "email": "CONNECT@FIERROJOTA.COM",
     "status": "ESPERANDO_CONEXIÓN_ENTRANTE...",
-    "footerBrand": "jotafierro.me // {{year}}",
+    "footerBrand": "fierrojota.com // {{year}}",
     "footerGithub": "GITHUB",
     "footerLinkedin": "LINKEDIN",
     "footerYoutube": "YOUTUBE",

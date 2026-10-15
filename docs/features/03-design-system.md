@@ -9,7 +9,7 @@
 
 ## What it does
 
-Establishes the look and feel of jotafierro.me before any real page ships: the dark, high-contrast "Kinetic Logic" visual style, the reusable pieces (buttons, status tags, cards, form fields, navigation) that every future page will be built from, and the groundwork to show the site in either English or Spanish. Nothing user-facing ships yet — this is the toolkit the landing page and blog will draw from.
+Establishes the look and feel of fierrojota.com before any real page ships: the dark, high-contrast "Kinetic Logic" visual style, the reusable pieces (buttons, status tags, cards, form fields, navigation) that every future page will be built from, and the groundwork to show the site in either English or Spanish. Nothing user-facing ships yet — this is the toolkit the landing page and blog will draw from.
 
 ## Who it's for
 

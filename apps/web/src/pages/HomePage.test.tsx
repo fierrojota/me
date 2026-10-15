@@ -89,13 +89,13 @@ describe('HomePage', () => {
     it('renders the OPEN_GITHUB link and all 4 project cards', () => {
       renderHomePage();
       expect(screen.getByRole('link', { name: es.featuredSystems.githubLink })).toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: es.featuredSystems.aura.title })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: es.featuredSystems.now.title })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: es.featuredSystems.jFlow.title })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: es.featuredSystems.superclean.title })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: es.featuredSystems.me.title })).toBeInTheDocument();
     });
 
-    it('sizes the desktop treemap by weight (aura > j-flow > superclean > me)', () => {
+    it('sizes the desktop treemap by weight (now > j-flow > superclean > me)', () => {
       renderHomePage();
       const area = (title: string) => {
         const cell = screen.getByRole('heading', { name: title }).closest('.project-card-cell')! as HTMLElement;
@@ -104,7 +104,7 @@ describe('HomePage', () => {
           parseFloat(cell.style.getPropertyValue('--rect-height'))
         );
       };
-      expect(area(es.featuredSystems.aura.title)).toBeGreaterThan(area(es.featuredSystems.jFlow.title));
+      expect(area(es.featuredSystems.now.title)).toBeGreaterThan(area(es.featuredSystems.jFlow.title));
       expect(area(es.featuredSystems.jFlow.title)).toBeGreaterThan(area(es.featuredSystems.superclean.title));
       expect(area(es.featuredSystems.superclean.title)).toBeGreaterThan(area(es.featuredSystems.me.title));
     });
@@ -115,12 +115,14 @@ describe('HomePage', () => {
       // images live in src/assets now so Vite fingerprints them, and the built
       // URL is not knowable here. Both widths are checked, since a missing
       // srcSmall would silently ship the 1376px file to every cell.
-      const auraImg = screen.getByRole('img', { name: es.featuredSystems.aura.imageAlt });
-      expect(auraImg).toHaveAttribute('src', projectById('aura').image!.src);
-      expect(auraImg.getAttribute('srcset')).toContain(projectById('aura').image!.srcSmall);
-      expect(screen.getByRole('img', { name: es.featuredSystems.jFlow.imageAlt })).toHaveAttribute(
+      const nowImg = screen.getByRole('img', { name: es.featuredSystems.now.imageAlt });
+      expect(nowImg).toHaveAttribute('src', projectById('now').image!.src);
+      const jFlowImg = screen.getByRole('img', { name: es.featuredSystems.jFlow.imageAlt });
+      expect(jFlowImg).toHaveAttribute('src', projectById('jFlow').image!.src);
+      expect(jFlowImg.getAttribute('srcset')).toContain(projectById('jFlow').image!.srcSmall);
+      expect(screen.getByRole('img', { name: es.featuredSystems.superclean.imageAlt })).toHaveAttribute(
         'src',
-        projectById('jFlow').image!.src,
+        projectById('superclean').image!.src,
       );
     });
 
@@ -131,9 +133,9 @@ describe('HomePage', () => {
       // rather than just the title. That is the point of dropping it — the
       // name now contains every word the user can see (WCAG 2.5.3).
       const link = screen.getByRole('link', {
-        name: new RegExp(es.featuredSystems.aura.title),
+        name: new RegExp(es.featuredSystems.now.title),
       });
-      expect(link).toHaveAttribute('href', 'https://aura-dev.jotafierro.me/');
+      expect(link).toHaveAttribute('href', 'https://youtu.be/utNbTEwnnLc');
       expect(link).toHaveAttribute('target', '_blank');
       expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     });
@@ -147,7 +149,7 @@ describe('HomePage', () => {
       expect(screen.queryByText(/Q\d/)).not.toBeInTheDocument();
       expect(screen.getByRole('link', { name: es.connect.email })).toHaveAttribute(
         'href',
-        'mailto:connect@jotafierro.me',
+        'mailto:connect@fierrojota.com',
       );
       expect(screen.getByText(es.connect.status)).toBeInTheDocument();
     });
@@ -155,15 +157,15 @@ describe('HomePage', () => {
     it('renders the former Footer brand/year and GitHub/LinkedIn/Email links inside the Connect section', () => {
       renderHomePage();
       expect(
-        screen.getByText(new RegExp(`jotafierro\\.me // ${new Date().getFullYear()}`)),
+        screen.getByText(new RegExp(`fierrojota\\.com // ${new Date().getFullYear()}`)),
       ).toBeInTheDocument();
       expect(screen.getByRole('link', { name: es.connect.footerGithub })).toHaveAttribute(
         'href',
-        'https://github.com/jotafierro',
+        'https://github.com/fierrojota',
       );
       expect(screen.getByRole('link', { name: es.connect.footerLinkedin })).toHaveAttribute(
         'href',
-        'https://linkedin.com/in/jotafierro',
+        'https://linkedin.com/in/fierrojota',
       );
       const youtube = screen.getByRole('link', { name: es.connect.footerYoutube });
       expect(youtube).toHaveAttribute('href', 'https://www.youtube.com/@fierrojota');
@@ -171,7 +173,7 @@ describe('HomePage', () => {
       expect(youtube).toHaveAttribute('rel', 'noopener noreferrer');
       expect(screen.getByRole('link', { name: es.connect.footerEmail })).toHaveAttribute(
         'href',
-        'mailto:connect@jotafierro.me',
+        'mailto:connect@fierrojota.com',
       );
       const footerLinks = Array.from(
         document.querySelectorAll('.connect__footer-links a'),

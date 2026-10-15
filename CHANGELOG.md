@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [07-brand-alignment] YouTube channel link in the Connect footer
 
 ### Changed
+- [domain-migration] Site moves from `jotafierro.me` to `fierrojota.com` (ADR-0018 in rumbo): canonical, Open Graph, `robots.txt`, `sitemap.xml`, `llms.txt`, header/footer wordmark, contact email (`connect@fierrojota.com`) and GitHub/LinkedIn links to the `fierrojota` handle
+- [domain-migration] Featured systems: AURA card replaced by `now` (video 1 thumbnail, links to the video); AURA assets removed
 - [07-brand-alignment] Site is Spanish-only: language forced via i18next `lng`, header language toggle hidden (EN locale and the `LanguageToggle` primitive stay in the repo, unused)
 - [07-brand-alignment] Hero, Builder and Connect copy aligned with the brand positioning; Builder gains a pillars line; Connect headline is now `HABLEMOS` and its subtitle no longer advertises engineering partnerships
 - [07-brand-alignment] `ErrorBoundary` fallback copy read from the i18n layer; `index.html`, `manifest.json` and `llms.txt` rewritten in Spanish

@@ -16,14 +16,14 @@ Los artefactos del proceso son lo esencial, no un efecto secundario — están e
 
 ## Sitio
 
-- [Inicio](https://jotafierro.me/): portafolio de una sola página (español), React 19 + Vite.
+- [Inicio](https://fierrojota.com/): portafolio de una sola página (español), React 19 + Vite.
 
 ## Proyectos
 
-- [AURA](https://aura-dev.jotafierro.me/): un RPG mítico de la vida real impulsado por Karma.
-- [j-flow](https://github.com/jotafierro/j-flow): framework de Spec-Driven Development con gates, distribuido como plugin de Claude Code.
-- [superclean](https://github.com/jotafierro/superclean): utilidad de línea de comandos para limpiar cachés, logs y basura del sistema en macOS.
-- [me](https://github.com/jotafierro/me): el código de este sitio, con sus specs e historial de revisiones.
+- [now](https://youtu.be/utNbTEwnnLc): nació del video 1 del canal. Skill de Claude Code que responde «¿qué hago ahora?» en 3 líneas. Template: https://github.com/fierrojota/now-skill-demo
+- [j-flow](https://github.com/fierrojota/j-flow): framework de Spec-Driven Development con gates, distribuido como plugin de Claude Code.
+- [superclean](https://github.com/fierrojota/superclean): utilidad de línea de comandos para limpiar cachés, logs y basura del sistema en macOS.
+- [me](https://github.com/fierrojota/me): el código de este sitio, con sus specs e historial de revisiones.
 
 ## Canales
 
@@ -31,6 +31,6 @@ Los artefactos del proceso son lo esencial, no un efecto secundario — están e
 
 ## Contacto
 
-- [Email](mailto:connect@jotafierro.me)
-- [GitHub](https://github.com/jotafierro)
-- [LinkedIn](https://linkedin.com/in/jotafierro)
+- [Email](mailto:connect@fierrojota.com)
+- [GitHub](https://github.com/fierrojota)
+- [LinkedIn](https://linkedin.com/in/fierrojota)

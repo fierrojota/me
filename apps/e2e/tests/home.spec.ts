@@ -8,7 +8,7 @@ test.describe('Home page', () => {
   test('header shows wordmark + nav links, brand link scrolls to Hero (AC-1)', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.locator('.site-header__brand-link')).toContainText('jotafierro.me');
+    await expect(page.locator('.site-header__brand-link')).toContainText('fierrojota.com');
     await expect(page.locator('.nav__link')).toHaveText(['00_INICIALIZAR', '01_ACERCA', '02_SISTEMAS', '03_CONECTAR']);
 
     // Scroll away from Hero first so the brand click has somewhere to go.
@@ -47,8 +47,8 @@ test.describe('Home page', () => {
     }
 
     // Exact heading match — a substring match on 'ME' would also hit
-    // "developMEnt" in the AURA card's description.
-    const titles = ['AURA', 'J-FLOW', 'SUPERCLEAN', 'ME'];
+    // words like "developMEnt" in a card's description.
+    const titles = ['NOW', 'J-FLOW', 'SUPERCLEAN', 'ME'];
     for (const title of titles) {
       await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
     }
@@ -62,14 +62,14 @@ test.describe('Home page', () => {
 
     await expect(page.locator('.connect__card')).toBeVisible();
     await expect(page.getByText('HABLEMOS')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'CONNECT@JOTAFIERRO.ME' })).toHaveAttribute(
+    await expect(page.getByRole('link', { name: 'CONNECT@FIERROJOTA.COM' })).toHaveAttribute(
       'href',
-      'mailto:connect@jotafierro.me',
+      'mailto:connect@fierrojota.com',
     );
 
     const footer = page.locator('#connect footer.connect__footer');
     await expect(footer).toBeVisible();
-    await expect(footer).toContainText('jotafierro.me //');
+    await expect(footer).toContainText('fierrojota.com //');
     await expect(footer).not.toContainText('BUILT WITH KINETIC_LOGIC');
     await expect(footer.getByRole('link', { name: 'GITHUB' })).toBeVisible();
     await expect(footer.getByRole('link', { name: 'LINKEDIN' })).toBeVisible();

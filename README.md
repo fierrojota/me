@@ -1,6 +1,6 @@
 # me
 
-**[jotafierro.me](https://jotafierro.me)** — personal brand site for a software engineer, showcasing projects, values, and (later) writing.
+**[fierrojota.com](https://fierrojota.com)** — personal brand site for a software engineer, showcasing projects, values, and (later) writing.
 
 Custom design, built from scratch. But the site itself is only half the story — the other half is *how* it's built.
 
@@ -18,7 +18,7 @@ I don't ship by vibes. Every feature begins as a written spec — problem, accep
   - [04 · Design polish](.specs/04-design-polish/)
 - **[Architecture & feature writeups](docs/)** — deeper dives per feature
 
-This is spec-driven development run with [**j-flow**](https://github.com/jotafierro/j-flow) — an open-source workflow I built for Claude Code — spec → build → QA gate → review, one feature at a time.
+This is spec-driven development run with [**j-flow**](https://github.com/fierrojota/j-flow) — an open-source workflow I built for Claude Code — spec → build → QA gate → review, one feature at a time.
 
 ## Stack
 

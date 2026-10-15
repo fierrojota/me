@@ -13,7 +13,7 @@
 **Given** a visitor loads `/`
 **When** the page renders
 **Then:**
-- Header shows logo mark (see AC-10) + "jotafierro.me" wordmark
+- Header shows logo mark (see AC-10) + "fierrojota.com" wordmark
 - Clicking the brand (logo + wordmark) scrolls to the Hero section (`#init`), same destination as `00_INIT`
 - Nav links render: `00_INIT` (scrolls to the Hero section), `01_ABOUT`, `02_SYSTEMS`, `03_CONNECT`
 - Active/current nav link renders in lime (`primary-container`)
@@ -59,7 +59,7 @@
 **Then:**
 - Section heading + subcopy render, plus `OPEN_GITHUB [ALL]` link
 - Projects render from a data source (array of project objects: `id`, `tag`, `title`, `description`, `imageAlt`, `weight`, `url`, optional `image`) — not hardcoded per-card JSX
-- Project list reflects the author's real public repositories at `github.com/jotafierro`
+- Project list reflects the author's real public repositories at `github.com/fierrojota`
 - Each project's card area is exactly proportional to its `weight` relative to the sum of all weights currently in the list — recomputes automatically for any number of projects: equal weight → equal area, a dominant weight → proportionally larger area, always tiling the section's full space with no gaps
 - Each card shows a tag chip, title, and description text
 - Each project has a `url` field — clicking anywhere on the card navigates to that `url`, opening in a new tab
@@ -72,7 +72,7 @@
 - The section renders as a bordered/framed box (not full-bleed lime background) — dark background, thin border, centered content
 - Headline renders, centered (`HABLEMOS` since 07-brand-alignment; was `BUILD_REMARKABLE_SYSTEMS_NOW`)
 - A subtitle renders between the headline and the email CTA
-- Email CTA button (`CONNECT@JOTAFIERRO.ME`) renders, centered
+- Email CTA button (`CONNECT@FIERROJOTA.COM`) renders, centered
 - Status microcopy (`AWAITING_INCOMING_CONNECTION...`) renders
 - Footer content (brand + year, `GITHUB`/`LINKEDIN`/`YOUTUBE`/`EMAIL` links; YOUTUBE added in 07-brand-alignment) renders within this same section, below the bordered CTA card — spans the FULL viewport width (edge-to-edge, matching the header's full-bleed treatment) and is NOT fixed/sticky
 

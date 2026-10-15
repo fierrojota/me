@@ -18,7 +18,7 @@ export function Connect() {
           <h2 className="text-headline-lg">{t('connect.headline')}</h2>
           <p className="connect__subtitle text-body-md">{t('connect.subtitle')}</p>
           <div className="connect__actions">
-            <a href="mailto:connect@jotafierro.me" className="btn btn--primary">
+            <a href="mailto:connect@fierrojota.com" className="btn btn--primary">
               {t('connect.email')}
             </a>
             <p className="connect__status text-label-sm">{t('connect.status')}</p>
@@ -36,10 +36,10 @@ export function Connect() {
         </div>
         <ul className="connect__footer-links text-label-md">
           <li>
-            <a href="https://github.com/jotafierro">{t('connect.footerGithub')}</a>
+            <a href="https://github.com/fierrojota">{t('connect.footerGithub')}</a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/jotafierro">{t('connect.footerLinkedin')}</a>
+            <a href="https://linkedin.com/in/fierrojota">{t('connect.footerLinkedin')}</a>
           </li>
           <li>
             <a href="https://www.youtube.com/@fierrojota" target="_blank" rel="noopener noreferrer">
@@ -47,7 +47,7 @@ export function Connect() {
             </a>
           </li>
           <li>
-            <a href="mailto:connect@jotafierro.me">{t('connect.footerEmail')}</a>
+            <a href="mailto:connect@fierrojota.com">{t('connect.footerEmail')}</a>
           </li>
         </ul>
       </footer>

@@ -16,7 +16,7 @@ export function FeaturedSystems() {
           <h2 className="text-headline-lg">{t('featuredSystems.heading')}</h2>
           <p className="text-body-md">{t('featuredSystems.subcopy')}</p>
         </div>
-        <a href="https://github.com/jotafierro" className="featured-systems__github text-label-md">
+        <a href="https://github.com/fierrojota" className="featured-systems__github text-label-md">
           {t('featuredSystems.githubLink')}
         </a>
       </div>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jotafierro.me/sitemap.xml
+Sitemap: https://fierrojota.com/sitemap.xml

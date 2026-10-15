@@ -1,6 +1,6 @@
 {
   "header": {
-    "wordmark": "jotafierro.me",
+    "wordmark": "fierrojota.com",
     "nav": {
       "init": "00_INIT",
       "about": "01_ABOUT",
@@ -41,11 +41,11 @@
     "heading": "FEATURED_SYSTEMS",
     "subcopy": "ENGINEERING_LOG: Products, tools, and workflows I design and ship — end to end.",
     "githubLink": "OPEN_GITHUB [ALL]",
-    "aura": {
-      "tag": "[ PRODUCT ]",
-      "title": "AURA",
-      "description": "Master Your Soul — a mythic real-life RPG powered by Karma and Greek Pantheon achievements. React · NestJS · MongoDB · Flutter. In development.",
-      "imageAlt": "AURA product key-art — 'Master Your Soul'."
+    "now": {
+      "tag": "[ SKILL ]",
+      "title": "NOW",
+      "description": "Born from video 1 of the channel: I asked my terminal \"what do I do now?\". A Claude Code skill that cross-checks the clock, your weekly grid and your live sprint, and answers in 3 lines. Read-only. Template on GitHub: fierrojota/now-skill-demo.",
+      "imageAlt": "Video 1 thumbnail — \"What do I do now?\": I asked my terminal."
     },
     "jFlow": {
       "tag": "[ FRAMEWORK ]",
@@ -62,16 +62,16 @@
     "me": {
       "tag": "[ WEB ]",
       "title": "ME",
-      "description": "This site — jotafierro.me, built with the same spec-driven process. React · Vite. Open source.",
-      "imageAlt": "jotafierro.me key-art — personal site."
+      "description": "This site — fierrojota.com, built with the same spec-driven process. React · Vite. Open source.",
+      "imageAlt": "fierrojota.com key-art — personal site."
     }
   },
   "connect": {
     "headline": "LETS_TALK",
     "subtitle": "A question, an idea or a thought on something I published? Write to me.",
-    "email": "CONNECT@JOTAFIERRO.ME",
+    "email": "CONNECT@FIERROJOTA.COM",
     "status": "AWAITING_INCOMING_CONNECTION...",
-    "footerBrand": "jotafierro.me // {{year}}",
+    "footerBrand": "fierrojota.com // {{year}}",
     "footerGithub": "GITHUB",
     "footerLinkedin": "LINKEDIN",
     "footerYoutube": "YOUTUBE",

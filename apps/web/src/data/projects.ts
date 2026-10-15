@@ -1,9 +1,9 @@
-import auraTiny from '../assets/systems/aura-344.webp';
+import nowTiny from '../assets/systems/now-344.webp';
 import jFlowTiny from '../assets/systems/j-flow-344.webp';
 import supercleanTiny from '../assets/systems/superclean-344.webp';
 import meTiny from '../assets/systems/me-344.webp';
-import auraLarge from '../assets/systems/aura.webp';
-import auraSmall from '../assets/systems/aura-688.webp';
+import nowLarge from '../assets/systems/now.webp';
+import nowSmall from '../assets/systems/now-688.webp';
 import jFlowLarge from '../assets/systems/j-flow.webp';
 import jFlowSmall from '../assets/systems/j-flow-688.webp';
 import supercleanLarge from '../assets/systems/superclean.webp';
@@ -25,14 +25,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'aura',
-    tag: 'featuredSystems.aura.tag',
-    title: 'featuredSystems.aura.title',
-    description: 'featuredSystems.aura.description',
-    imageAlt: 'featuredSystems.aura.imageAlt',
+    id: 'now',
+    tag: 'featuredSystems.now.tag',
+    title: 'featuredSystems.now.title',
+    description: 'featuredSystems.now.description',
+    imageAlt: 'featuredSystems.now.imageAlt',
     weight: 900, // flagship — biggest cell in the desktop treemap
-    url: 'https://aura-dev.jotafierro.me/',
-    image: { src: auraLarge, srcSmall: auraSmall, srcTiny: auraTiny, width: 1376, height: 768 },
+    url: 'https://youtu.be/utNbTEwnnLc', // the card is the video's thumbnail, so it opens the video
+    image: { src: nowLarge, srcSmall: nowSmall, srcTiny: nowTiny, width: 1376, height: 768 },
   },
   {
     id: 'jFlow',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description: 'featuredSystems.jFlow.description',
     imageAlt: 'featuredSystems.jFlow.imageAlt',
     weight: 500,
-    url: 'https://github.com/jotafierro/j-flow',
+    url: 'https://github.com/fierrojota/j-flow',
     image: { src: jFlowLarge, srcSmall: jFlowSmall, srcTiny: jFlowTiny, width: 1376, height: 768 },
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     imageAlt: 'featuredSystems.superclean.imageAlt',
     tagVariant: 'neutral',
     weight: 300,
-    url: 'https://github.com/jotafierro/superclean',
+    url: 'https://github.com/fierrojota/superclean',
     image: { src: supercleanLarge, srcSmall: supercleanSmall, srcTiny: supercleanTiny, width: 1376, height: 768 },
   },
   {
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     imageAlt: 'featuredSystems.me.imageAlt',
     tagVariant: 'neutral',
     weight: 200,
-    url: 'https://github.com/jotafierro/me',
+    url: 'https://github.com/fierrojota/me',
     image: { src: meLarge, srcSmall: meSmall, srcTiny: meTiny, width: 1376, height: 768 },
   },
 ];
